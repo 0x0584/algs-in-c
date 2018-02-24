@@ -1,0 +1,73 @@
+* Introduction
+  the aim of this book gives a solid introduction to several fields which are in the /core/ of computer science, and other ones that are more specialized and advanced ones.
+
+* Fundamental Algorithms [0/10]
+  This part is just a /setup of the required/ stuff in upcoming chapters, this includes:
+
+  + [ ] Key-features of the *C Programming Language*
+  + [ ] Arrays
+  + [ ] Linked Lists
+  + [ ] Stacks
+  + [ ] Queues
+  + [ ] Trees
+  + [ ] Recursion
+  + [ ] Analysis of Algorithms
+  + [ ] Implementation of Algorithms
+
+* Sorting Algorithms [0/3]
+  /Sorting/ is based on rearranging things in a particular order, which is a /fundamental problem/ in Computer Science. Although, some of these is the basis of other ones in further chapters, so basic ones are based on:
+
+  + [ ] Priority-Queues Sorts
+  + [ ] Selection Sorts
+  + [ ] Merging Sorts
+  
+* Searching Algorithms [0/6]
+  /Searching/ has a fundamental importance. It's aim is to find something in side a set of things. advanced search methods are based on /trees/ and /digital key/
+
+  + [ ] Binary-Search Trees
+  + [ ] Balanced Trees
+  + [ ] Hashing
+  + [ ] Digital Search Trees and Tries
+  + [ ] Methods for very large /files/
+  + [ ] Analysis of similarities between methods
+
+* String Processing Algorithms [0/3]
+  /String/ is usually a sequence, /a long sequence/, of characters, which are another fundamental data-type.
+
+  + [ ] Pattern matching
+  + [ ] File Compression
+  + [ ] Cryptology
+
+* Geometric Algorithms [0/5]
+  /Geometry/ has to do with points and lines, or other simple geometric objects.
+
+  + [ ] Finding the /convex hull/ of a set o points
+  + [ ] Intersection among geometric objects
+  + [ ] Closest Point Problems
+  + [ ] Multidimensional Searching
+  + [ ] Integration with other search and sort algorithms
+
+* Graph Algorithms [0/4]
+  /Graphs/ are a real important domain in mathematics and indeed Computer Science. *Graph algorithms* are based om fundamental connectivity problems, and /solved using just the same data structures/ developed earlier.
+
+  + [ ] Shortest path
+  + [ ] Minimum Spinning Tree
+  + [ ] Network Flow
+  + [ ] Matching
+
+* Mathematical Algorithms [0/4]
+  This covers arithmetic and numerical analysis, polynomials and matrices, and use that knowledge to solve problems like
+
+  + [ ] Random Number Generation
+  + [ ] Simultaneous equations
+  + [ ] Data fitting?
+  + [ ] Integration?
+
+* Advanced Algorithms [0/5]
+  This is like the glue to all of the book algorithms.
+
+  + [ ] Special-purpose hardware
+  + [ ] Dynamic Programming
+  + [ ] Linear Programming
+  + [ ] Exhaustive search
+  + [ ] NP-completeness
