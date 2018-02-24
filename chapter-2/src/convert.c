@@ -8,21 +8,22 @@
 
 #include "../include/ch2.h"
 
-int abs(int x) {
+unsigned absolute(int x) {
     return x > 0 ? x : -x;
 }
 
-int power(int x, int y) {
+double power(int x, int y) {
     if (y == 0) return 1;
     int prod = 1;
-    for (int i = 0; i < abs(y); ++i) {
+    
+    for (unsigned i = 0; i < absolute(y); ++i) {
 	prod *= x;
     }
     
     return y > 0 ? prod : 1/prod;
 }
 
-int strlength(char *str) {
+unsigned strlength(const char *str) {
     int counter = 0;
 
     while (*str) {
@@ -51,10 +52,11 @@ int chartoint(char c) {
 int convert(char *str) {
     int number = 0;
     int length = strlength(str);
+    bool_t isnegative = (*str == '-');
     
     while (*str) {
 	number += chartoint(*str++) * power(10, --length);
     }
-    
-    return number;
+
+    return number * (isnegative ? -1 : 1);
 }

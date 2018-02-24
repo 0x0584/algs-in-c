@@ -37,9 +37,8 @@ int main(int argc, char **argv) {
     
     printf("%d/%d is the same as %d/%d\n", x, y, foo.numer, foo.denom);
 
-    printf("%s -> %d\n", str, convert(str));
-
-    putchar('\n');
-    
+    printf("\"%s\" %d\n", str, convert(str));
+    printf("%d in binary is  %ld\n", 1000 , binary(1000));
+	
     return EXIT_SUCCESS;
 }
