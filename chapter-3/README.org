@@ -1,0 +1,23 @@
+* About
+  /Data/ and /Data Structures/ are like a coin with two faces. Some data could be implemented in many forms, or indeed structures. Each one has major advantages and disadvantages, in terms of /space usage/ and in terms of /operations efficiency/. Thus, the choice of a particular data structure among others has a key roll in the efficiency of an /algorithm/ in order to save /time/ and/or /space/.
+
+* Things learned in this chapter
+  + Data Structure != passive object :: Applied operations matters too.
+  + Array indexes can be very handy :: =[i%2]= or =[i*j]= or even =[foo[i]]=
+  + 3d arrays are handy beside 3d objects :: =[year][student][grade]=
+  + basic linked list operations are :: /insert/ /delete/
+
+* Nice facts
+** about Arrays
+   + if the index is /known/, all arrays accesses are done in /constant time/
+   + beside the fact that arrays could be dynamical allocated, they still have the fundamental proprietary such that /their size must be known/ before actually using the array
+   + arrays have a direct impact on memory systems, as that we can /think of memory a big array/ while the index is the actual /memory address/
+     - some computer /language processors/ *translate* program instructions that involve array usage into rather more effecient instructions that /access the computer memory directly/
+   + 1d arrays are mathematical /vectors/ same as 2d arrays are mathematical /matrices/
+
+** about Linked Lists
+   suppose we have the following linked list named /list/ that contains { =head= $\to$ =car= $\to$ =tar= $\to$ =foo= $\to$ =z= } while =head= and =z= are the /head/ and /tail/ of the list respectively
+
+   + /finding/ elements that are relative to $k^{th}$ position is not suitable for linked lists as that we have to cross the list $k$ times to reache the target node
+   + /deleting/ elements do not remove them from the memory, but they've become +comfortably numb+ not accessible if we walk the list from the /head/.
+     - matter of fact, the removed element still points to whatever it has pointed to before.
