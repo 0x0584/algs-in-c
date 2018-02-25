@@ -7,22 +7,20 @@
  */
 #include "../include/ch3.h"
 
-/* this is implementation is done without the doubly linked list */
+/* there would be no easy way without doubly linked lists */
 list_t kill(unsigned n, unsigned m) {
     list_t head = malloc(sizeof *head),
-	z = malloc(sizeof *z);
+	tail = malloc(sizeof *tail);
 
     head->data = 1;
-    head->next = z;
+    head->next = tail;
     for (unsigned i = (n - 1); i > 1; --i) {
 	insertafter(head, i);
     }
 
-    z->next = z;
-    printlist(head);
-
-    z->next = head;
-    z->data = n;
+    tail->next = head;
+    tail->data = n;
+    head = tail;
     
     list_t tmp = NULL;
     list_t h = malloc(sizeof *h),
@@ -30,7 +28,7 @@ list_t kill(unsigned n, unsigned m) {
 
     h->next = zz;
     zz->next = zz;
-    
+
     while (head != head->next) {
 	for (unsigned i = 0; i < (m - 1); ++i) {
 	    head = head->next;
@@ -40,7 +38,9 @@ list_t kill(unsigned n, unsigned m) {
 	insertafter(h, tmp->data);
 	free(tmp);
     }
-    
+
     insertafter(h, head->data);
+    free(head);
+    
     return h;
 }
