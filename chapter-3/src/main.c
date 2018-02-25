@@ -53,5 +53,11 @@ int main(void) {
 
     freelist(head);
 
+    puts("\n-------------- josephus problem ---------------\n");
+
+    list_t foo = kill(9, 5);
+    printlist(foo);
+    freelist(foo);
+    
     return 0;
 }

@@ -1,8 +1,5 @@
 #include "../include/ch3.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-
 void initlist(list_t *head, list_t *z) {
     *head = malloc(sizeof **head);
     *z = malloc(sizeof **z);
@@ -11,10 +8,14 @@ void initlist(list_t *head, list_t *z) {
     (*z)->next = *z;
 }
 
-void delnext(list_t foo) {
+int delnext(list_t foo) {
     list_t bar = foo->next;
+    int data = bar->data;
+
     foo->next = foo->next->next;
     free(bar);
+    
+    return data;
 }
 
 list_t insertafter(list_t foo, int val) {

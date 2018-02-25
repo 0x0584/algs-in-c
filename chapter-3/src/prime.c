@@ -1,5 +1,4 @@
 #include "../include/ch3.h"
-#include <math.h>
 
 bool_t isprime(unsigned foo) {
     if (foo == 0 || foo == 1) return false;
