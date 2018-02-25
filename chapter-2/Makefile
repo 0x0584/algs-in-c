@@ -5,7 +5,7 @@ CFLAGS = -ggdb -O2 -Wall -Wextra -Werror
 LDFLAGS = -I.
 
 # DEFAULT PROGRAM NAME
-EXEC = ch2
+EXEC = ch2.out
 # DEFAULT PROGRAM ARGUMENTS
 ARGS = 30 6
 

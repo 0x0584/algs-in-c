@@ -3,7 +3,7 @@
  * DESCRIPTION:	binary equivalent of a number
  * 
  * CREATION:	02/24/2018
- * MODIFIED:	02/24/2018 
+ * MODIFIED:	02/25/2018 
  */
 
 #include "../include/ch2.h"
