@@ -39,6 +39,7 @@ int main(int argc, char **argv) {
 
     printf("\"%s\" %d\n", str, convert(str));
     printf("%d in binary is  %ld\n", 1000 , binary(1000));
-	
+    printf("gcd of %d %d %d is  %d\n", x, y, 4, gcd3(x, y, 4));
+
     return EXIT_SUCCESS;
 }

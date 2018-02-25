@@ -7,6 +7,12 @@
  */
 
 #include "../include/ch2.h"
+#include <stdarg.h>
+#include <stdio.h>
+
+int gcd3(int n, int m, int p) {    
+    return gcd(gcd(n,m), p);
+}
 
 int gcd(int fst, int snd) {
     int tmp = 0;
