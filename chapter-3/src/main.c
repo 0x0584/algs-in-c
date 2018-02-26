@@ -95,9 +95,16 @@ int main(void) {
     push(5, head);
     
     printf("5x5x5 is %d\n", pop(head) * pop(head) * pop(head));
-
+    printf("stack is: %s\n", isempty(head, z) ? "t" : "nil");
+    
     push(7, head);
+    printf("stack is: %s\n", isempty(head, z) ? "t" : "nil");
+    
     freestack(head, z);
+
+    char *str = topolish("((1 + 5) * (3 - 2)) + (1 - 2)");
+    puts(str);
+    free(str);
     
     return 0;
 }

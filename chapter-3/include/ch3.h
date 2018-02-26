@@ -32,6 +32,7 @@ typedef struct STACK_NODE {
 bool_t isprime(unsigned __number);
 void sieve_of_eratosthenes(bool_t *__array, unsigned __sz);
 list_t kill(unsigned __npeople, unsigned __tour);
+char *topolish(const char *__equation);
 
 /* ----------- list operations ----------- */
 void initlist(list_t *__head, list_t *__tail);
@@ -53,4 +54,6 @@ void push(int value, snode_t __head);
 int pop(snode_t __head);
 bool_t isempty(snode_t __head, snode_t __tail);
 void freestack(snode_t __head, snode_t __tail);
+#define IS_EMPTY(head, z)		(isempty(head, z) ? "t" : "nil")
+
 #endif

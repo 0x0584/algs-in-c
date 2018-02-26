@@ -46,7 +46,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c $(DEPS)
 	$(CC) $(CFLAGS) -c -o $@ $< $(LDFLAGS) 
 
 run: all
-	@echo -e "Passed Arguments:\t \033[0;31m" $(ARGS)
+	@echo -e "Passed Arguments:\t \033[0;32m" $(ARGS)
 	@echo -e "\033[0m"
 	./$(EXEC) $(ARGS)
 	@echo " "
