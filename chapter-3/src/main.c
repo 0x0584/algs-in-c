@@ -63,7 +63,8 @@ int main(void) {
     printlist(foo);
     freelist(foo);
     */
-    
+
+    /*
     puts("\n-------------- parallel lists ---------------\n");
 
     para_list para = initpara(PARA_SIZE);
@@ -82,6 +83,21 @@ int main(void) {
 
     
     freepara(para);
+    */
+
+    puts("\n-------------- pushdown stacks ---------------\n");
+    snode_t head, z;
+
+    initstack(&head, &z);
+
+    push(5, head);
+    push(5, head);
+    push(5, head);
+    
+    printf("5x5x5 is %d\n", pop(head) * pop(head) * pop(head));
+
+    push(7, head);
+    freestack(head, z);
     
     return 0;
 }

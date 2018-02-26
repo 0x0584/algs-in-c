@@ -6,7 +6,8 @@
   + Array indexes can be very handy :: =[i%2]= or =[i*j]= or even =[foo[i]]=
   + 3d arrays are handy beside 3d objects :: =[year][student][grade]=
   + basic linked list operations are :: /insert/ /delete/
-  + linked lists could be implemented using arrays :: i.e. parallel arrays 
+  + linked lists could be implemented using arrays :: i.e. parallel arrays
+  + basic pushdown stacks operations :: /push/ /pop/
 
 * Nice facts
 ** about Arrays
@@ -23,3 +24,35 @@
    + /deleting/ elements do not remove them from the memory, but they've become +comfortably numb+ not accessible if we walk the list from the /head/.
      - matter of fact, the removed element still points to whatever it has pointed to before.
    + /parallel arrays/ has advanteges over using pointers. for instance, data is always in a =key= arrays while links are in a =next= array. this means that data is separated from the links, so that data could be shared or added when needed.
+** pushdown stacks
+   + sometimes, there's no need to keep tracking of all the links. which leads to few operations to handle..
+   + pushdown stacks are the most important restricted-access data structure.
+   + /push/ element to the head of the stack
+   + /pop/ from the head of the stack
+   + some calculators and programming languages base their calculations on stack operations e.g. [[example 1]]
+
+*** example 1
+   #+BEGIN_SRC C
+   /* this is to compute the following expressing:
+    *	5 x (((9 + 8) x (4 x 6)) + 7) 
+    */
+   /* ----------- prototypes ----------- */
+   void push(int value);
+   int pop();
+    
+   push(5);
+   push(9);
+   push(8);
+   push(pop() + pop());		/* n = 8 + 9 */
+
+   push(4);
+   push(6);
+   push(pop() * pop());		/* m = 6 x 4 */
+   push(pop() * pop());		/* p = m x n */
+   
+   push(7);
+   push(pop() + pop());		/* q = p + 7 */
+   push(pop() * pop());		/* q x 5 */
+   
+   int result = pop();
+   #+END_SRC

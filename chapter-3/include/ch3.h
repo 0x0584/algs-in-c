@@ -23,6 +23,11 @@ typedef struct PARALLEL_ARRAY {
     int *data;
 } *para_list;
 
+typedef struct STACK_NODE {
+    struct STACK_NODE *next;
+    int data;
+} *snode_t;
+
 /* ----------- prototypes ----------- */
 bool_t isprime(unsigned __number);
 void sieve_of_eratosthenes(bool_t *__array, unsigned __sz);
@@ -41,4 +46,11 @@ int paradelnext(unsigned __index, para_list __list);
 bool_t parainsertafter(unsigned __node, int __val, para_list __list);
 void freepara(para_list __list);
 void printpara(para_list __list);
+
+/* ----------- pushdown stacks ----------- */
+void initstack(snode_t *__head, snode_t *__tail);
+void push(int value, snode_t __head);
+int pop(snode_t __head);
+bool_t isempty(snode_t __head, snode_t __tail);
+void freestack(snode_t __head, snode_t __tail);
 #endif

@@ -1,12 +1,12 @@
 * Introduction
   the aim of this book gives a solid introduction to several fields which are in the /core/ of computer science, and other ones that are more specialized and advanced ones.
 
-* Fundamental Algorithms [1/9]
+* Fundamental Algorithms [3/9]
   This part is just a /setup of the required/ stuff in upcoming chapters, this includes:
 
   + [X] Key-features of the *C Programming Language*
-  + [ ] Arrays
-  + [ ] Linked Lists
+  + [X] Arrays
+  + [X] Linked Lists
   + [ ] Stacks
   + [ ] Queues
   + [ ] Trees
