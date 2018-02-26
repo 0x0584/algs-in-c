@@ -11,9 +11,13 @@
 
 #include "../include/ch3.h"
 #define LIMIT				(1000/2)
+#define PARA_SIZE			(20)
 
 int main(void) {
-    bool_t numbers[] = {[0 ... 1] = false,[2 ... LIMIT] = true };
+    bool_t numbers[] = {
+	[0 ... 1] = false,
+	[2 ... LIMIT] = true
+    };
 
     /*
     puts("\n----------------- my prime -----------------\n");
@@ -35,8 +39,8 @@ int main(void) {
     }
     */ 
 
+    /*
     puts("\n-------------- list operations ---------------\n");
-
     list_t head, z;
 
     
@@ -45,19 +49,39 @@ int main(void) {
     insertafter(head, 5);
     insertafter(head, 9);
     insertafter(head, 11);
-
     printlist(head);
 
     delnext(head);
     printlist(head);
 
     freelist(head);
+    */
 
+    /*
     puts("\n-------------- josephus problem ---------------\n");
-
     list_t foo = kill(9, 5);
     printlist(foo);
     freelist(foo);
+    */
+    
+    puts("\n-------------- parallel lists ---------------\n");
+
+    para_list para = initpara(PARA_SIZE);
+    printpara(para);
+
+    parainsertafter(0, 5, para);
+    parainsertafter(para->head, 48, para);
+    parainsertafter(para->head, 62, para);
+    parainsertafter(para->head, 12, para);
+    parainsertafter(para->head, 11, para);
+    printpara(para);
+
+    paradelnext(para->next[para->head], para);
+    paradelnext(para->head, para);
+    printpara(para);
+
+    
+    freepara(para);
     
     return 0;
 }

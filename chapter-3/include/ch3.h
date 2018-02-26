@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <limits.h>
 
 /* ----------- types ----------- */
 typedef enum BOOLEAN {
@@ -15,6 +16,12 @@ typedef struct LINKED_LIST {
     struct LINKED_LIST *next, *prev;
     int data;
 } *list_t;
+
+typedef struct PARALLEL_ARRAY {
+    unsigned size, limit;
+    unsigned *next, head, z;
+    int *data;
+} *para_list;
 
 /* ----------- prototypes ----------- */
 bool_t isprime(unsigned __number);
@@ -28,4 +35,10 @@ int delnext(list_t __node);
 void printlist(list_t __head);
 void freelist(list_t __head); 
 
+/* ----------- parallel lists ----------- */
+para_list initpara(unsigned __size);
+int paradelnext(unsigned __index, para_list __list);
+bool_t parainsertafter(unsigned __node, int __val, para_list __list);
+void freepara(para_list __list);
+void printpara(para_list __list);
 #endif
