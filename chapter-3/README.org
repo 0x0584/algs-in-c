@@ -5,9 +5,10 @@
   + Data Structure != passive object :: Applied operations matters too.
   + Array indexes can be very handy :: =[i%2]= or =[i*j]= or even =[foo[i]]=
   + 3d arrays are handy beside 3d objects :: =[year][student][grade]=
-  + basic linked list operations are :: /insert/ /delete/
+  + basic linked list operations are :: =insert()= or =delete()= after a node
   + linked lists could be implemented using arrays :: i.e. parallel arrays
-  + basic pushdown stacks operations :: /push/ /pop/
+  + basic pushdown stacks operations :: =push()= to head, =pop()= from head
+  + stacks require fewer space for much operations :: =pop()='s frees the space for =push()='s
 
 * Nice facts
 ** about Arrays
@@ -24,12 +25,13 @@
    + /deleting/ elements do not remove them from the memory, but they've become +comfortably numb+ not accessible if we walk the list from the /head/.
      - matter of fact, the removed element still points to whatever it has pointed to before.
    + /parallel arrays/ has advanteges over using pointers. for instance, data is always in a =key= arrays while links are in a =next= array. this means that data is separated from the links, so that data could be shared or added when needed.
-** pushdown stacks
+** about Pushdown Stacks, a.k.a. FIFO -- First In First Out 
    + sometimes, there's no need to keep tracking of all the links. which leads to few operations to handle..
    + pushdown stacks are the most important restricted-access data structure.
    + /push/ element to the head of the stack
    + /pop/ from the head of the stack
    + some calculators and programming languages base their calculations on stack operations e.g. [[example 1]]
+   + if operations are somehow related, then a small stack could be used to perform large set of operations, +if this is the case after all+ 
 
 *** example 1
    #+BEGIN_SRC C
@@ -56,3 +58,5 @@
    
    int result = pop();
    #+END_SRC
+** about Queues, a.k.a. LIFO -- Last In First Out
+   + same as stack, the only difference is that when =remove()= an element, it's from the back. and when =insert()= an element, it's in the front
