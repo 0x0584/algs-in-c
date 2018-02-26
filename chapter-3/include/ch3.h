@@ -28,6 +28,11 @@ typedef struct STACK_NODE {
     int data;
 } *snode_t;
 
+typedef struct FIXED_SIZE_STACK {
+    unsigned size, limit;
+    int *data;
+} *fstack;
+
 /* ----------- prototypes ----------- */
 bool_t isprime(unsigned __number);
 void sieve_of_eratosthenes(bool_t *__array, unsigned __sz);
@@ -55,5 +60,12 @@ int pop(snode_t __head);
 bool_t isempty(snode_t __head, snode_t __tail);
 void freestack(snode_t __head, snode_t __tail);
 #define IS_EMPTY(head, z)		(isempty(head, z) ? "t" : "nil")
+
+/* ----------- fixed size stacks ----------- */
+fstack initfstack(unsigned __size);
+void pushfstack(int __value, fstack __head);
+int popfstack(fstack __head);
+bool_t isemptyfstack(fstack __head);
+void freefstack(fstack __head);
 
 #endif

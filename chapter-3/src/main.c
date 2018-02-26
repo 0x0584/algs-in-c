@@ -102,9 +102,23 @@ int main(void) {
     
     freestack(head, z);
 
+    puts("\n-------------- reverse polish notation ---------------\n");
     char *str = topolish("((1 + 5) * (3 - 2)) + (1 - 2)");
     puts(str);
     free(str);
+
+    puts("\n-------------- fixed size stacks ---------------\n");
+
+    fstack fixed = initfstack(50);
+
+    pushfstack(5, fixed);
+    pushfstack(3, fixed);
+    puts(isemptyfstack(fixed) ? "t":"nil");
+    
+    printf("%d\n", popfstack(fixed)*popfstack(fixed));
+    puts(isemptyfstack(fixed) ? "t":"nil");
+    
+    freefstack(fixed);
     
     return 0;
 }
