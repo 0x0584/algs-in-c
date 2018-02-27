@@ -7,17 +7,27 @@ queue_t initqueue(void) {
     q->z = malloc(sizeof *(q->z));
 
     q->head->next = q->z;
-    q->z = q->z;
+    q->head->data = -1;
+    
+    
+    /* the tail is always pointing to the last node */
+    q->z->next = NULL;
+    q->z->data = -1;
 
     return q;
 }
 
 void put(int val, queue_t que) {
-    qnode_t new_z = malloc(sizeof *new_z);
+    qnode_t new = malloc(sizeof *new);
+    qnode_t last = que->z->next;
 
-    que->z->data = val;
-    new_z->next = new_z;
-    
+    /* setup the new node */
+    new->data = val;
+    new->next = que->z;
+    que->z->next = new;
+
+    if (last) last->next = new;
+    else que->head->next = new;
 }
 
 int get(queue_t que) {
@@ -25,11 +35,11 @@ int get(queue_t que) {
 	return INT_MAX;		/* queue is empty */
     }
     
-    qnode_t foo = que->head;
-    int data = foo->next->data;
+    qnode_t oldhead = que->head;
+    int data = oldhead->next->data;
 
-    que->head = foo->next;
-    free(foo);
+    que->head = oldhead->next;
+    free(oldhead);
     
     return data;
 }

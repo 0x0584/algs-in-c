@@ -116,6 +116,7 @@ int main(void) {
     freefstack(fixed);
     */
 
+    puts("\n-------------- fixed size queue ---------------\n");
     fqueue_t q = initfqueue(FIXED_SIZE);
 
     putfqueue(5, q);
@@ -128,6 +129,20 @@ int main(void) {
     printf("is queue empty? %s\n", isemptyfqueue(q) ? "t" : "nil");
 	
     freefqueue(q);
+
+    puts("\n-------------- queue ---------------\n");
+
+    queue_t qu = initqueue();
+
+    put(10, qu);
+    put(11, qu);
+    put(12, qu);
+    put(13, qu);
+
+    printf("%d\n", get(qu) + get(qu));
+    puts(isemptyqueue(qu)? "t" : "nil");
+    
+    freequeue(qu);
     
     return 0;
 }
