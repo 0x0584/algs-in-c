@@ -1,14 +1,14 @@
 #include "../include/ch3.h"
 
-para_list initpara(unsigned sz) {
+para_list initpara(unsigned length) {
     para_list list = malloc(sizeof *list);
 
     /* init size plus head and tail */
-    list->limit = (sz + 2);
+    list->limit = (length + 2);
 
     /* allocate the memory */
-    list->data = malloc((sz + 2) * sizeof(int));
-    list->next = malloc((sz + 2) * sizeof(unsigned));
+    list->data = malloc((length + 2) * sizeof(int));
+    list->next = malloc((length + 2) * sizeof(unsigned));
 
     /* init indexes */
     list->head = 0;

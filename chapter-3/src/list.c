@@ -1,6 +1,6 @@
 #include "../include/ch3.h"
 
-void initlist(list_t *head, list_t *z) {
+void initlist(lnode_t *head, lnode_t *z) {
     *head = malloc(sizeof **head);
     *z = malloc(sizeof **z);
 
@@ -8,8 +8,8 @@ void initlist(list_t *head, list_t *z) {
     (*z)->next = *z;
 }
 
-int delnext(list_t foo) {
-    list_t bar = foo->next;
+int delnext(lnode_t foo) {
+    lnode_t bar = foo->next;
     int data = bar->data;
 
     foo->next = foo->next->next;
@@ -18,8 +18,8 @@ int delnext(list_t foo) {
     return data;
 }
 
-list_t insertafter(list_t foo, int val) {
-    list_t bar = malloc(sizeof *bar);
+lnode_t insertafter(lnode_t foo, int val) {
+    lnode_t bar = malloc(sizeof *bar);
 
     bar->data = val;
     bar->next = foo->next;
@@ -28,8 +28,8 @@ list_t insertafter(list_t foo, int val) {
     return bar;
 }
 
-void printlist(list_t head) {
-    list_t tmp = head->next;
+void printlist(lnode_t head) {
+    lnode_t tmp = head->next;
     unsigned i = 0;
 
     puts("---------");
@@ -40,8 +40,8 @@ void printlist(list_t head) {
     puts("---------");
 }
 
-void freelist(list_t head) {
-    list_t tmp;
+void freelist(lnode_t head) {
+    lnode_t tmp;
     
     while (head) {
 	tmp = head;

@@ -21,7 +21,7 @@
 ** about Linked Lists
    suppose we have the following linked list named /list/ that contains { =head= \to =car= \to =tar= \to =foo= \to =z= } while =head= and =z= are the /head/ and /tail/ of the list respectively
 
-   + /finding/ elements that are relative to k^{th} position is not suitable for linked lists as that we have to cross the list $k$ times to reache the target node
+   + /finding/ elements that are relative to k^{th} position is not suitable for linked lists as that we have to cross the list k times to reache the target node
    + /deleting/ elements do not remove them from the memory, but they've become +comfortably numb+ not accessible if we walk the list from the /head/.
      - matter of fact, the removed element still points to whatever it has pointed to before.
    + /parallel arrays/ has advanteges over using pointers. for instance, data is always in a =key= arrays while links are in a =next= array. this means that data is separated from the links, so that data could be shared or added when needed.
@@ -31,7 +31,8 @@
    + /push/ element to the head of the stack
    + /pop/ from the head of the stack
    + some calculators and programming languages base their calculations on stack operations e.g. [[example 1]]
-   + if operations are somehow related, then a small stack could be used to perform large set of operations, +if this is the case after all+ 
+   + if operations are somehow related, then a small stack could be used to perform large set of operations, +if this is the case after all+
+   + pushdown stacks could be implemented using either arrays or linked lists ([[about Arrays]], [[about Linked Lists]])
 
 *** example 1
    #+BEGIN_SRC C
@@ -60,3 +61,4 @@
    #+END_SRC
 ** about Queues, a.k.a. FIFO -- First In First Out 
    + same as stack, the only difference is that when =remove()= an element, it's from the back. and when =insert()= an element, it's in the front
+   + queues also could be implemented using either arrays or linked lists ([[about Arrays]], [[about Linked Lists]])

@@ -1,31 +1,31 @@
 #include "../include/ch3.h"
 
-fstack initfstack(unsigned size) {
-    fstack head;
+fstack_t initfstack(unsigned length) {
+    fstack_t head;
 
     head = malloc(sizeof *head);
-    head->limit = ++size;
+    head->limit = ++length;
     head->size = 0;
-    head->data = malloc(size * sizeof(int));
+    head->data = malloc(length * sizeof(int));
 
     return head;
 }
 
-void pushfstack(int val, fstack head) {
+void pushfstack(int val, fstack_t head) {
     if (head->size < head->limit) {
 	head->data[head->size++] = val;
     }
 }
 
-int popfstack(fstack head) {
+int popfstack(fstack_t head) {
     return head->size ? head->data[--(head->size)] : INT_MAX;
 }
 
-bool_t isemptyfstack(fstack head) {
+bool_t isemptyfstack(fstack_t head) {
     return !head->size;
 }
 
-void freefstack(fstack head) {
+void freefstack(fstack_t head) {
     free(head->data);
     free(head);
 }

@@ -8,8 +8,8 @@
 #include "../include/ch3.h"
 
 /* there would be no easy way without doubly linked lists */
-list_t kill(unsigned n, unsigned m) {
-    list_t head = malloc(sizeof *head),
+lnode_t kill(unsigned n, unsigned m) {
+    lnode_t head = malloc(sizeof *head),
 	tail = malloc(sizeof *tail);
 
     head->data = 1;
@@ -22,8 +22,8 @@ list_t kill(unsigned n, unsigned m) {
     tail->data = n;
     head = tail;
     
-    list_t tmp = NULL;
-    list_t h = malloc(sizeof *h),
+    lnode_t tmp = NULL;
+    lnode_t h = malloc(sizeof *h),
 	zz = malloc(sizeof *zz);
 
     h->next = zz;

@@ -28,12 +28,12 @@ int pop(snode_t head) {
     return bar;
 }
 
-bool_t isempty(snode_t head, snode_t z) {
+bool_t isemptystack(snode_t head, snode_t z) {
     return head->next == z;
 }
 
 void freestack(snode_t head, snode_t z) {
-    while (!isempty(head, z)) {
+    while (!isemptystack(head, z)) {
 	pop(head);
     }
     free(z);
@@ -80,7 +80,7 @@ char *topolish(const char *equ) {
 
     expr[i++] = ' ';
     expr[i] = pop(head);
-    printf("%s\n", IS_EMPTY(head, z));
+
     freestack(head, z);
     
     return expr;
