@@ -28,7 +28,7 @@ int gcd(int fst, int snd) {
 
 int __gcd(int fst, int snd) {
     int tmp = 0;
-
+    
     while (fst != 0) {
 	if (fst < snd) {
 	    tmp = fst;

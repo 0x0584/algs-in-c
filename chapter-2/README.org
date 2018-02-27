@@ -3,5 +3,5 @@
 
 * Things learned in this chapter
   + Basic C syntax, which is very easy :: is does not require anything more than few keywords
-  + Coding in FORTRAN95 is quiet weird :: yet it seems like a clever language relative to the /"old days"/
+  + Coding in FORTRAN95 is quiet weird :: yet it seems like a clever language relative to the " /old days/ "
   + Mathematical review :: great common divisor is like an /old memory/ to me..

@@ -1,0 +1,7 @@
+* Notes
+  #+BEGIN_SRC c
+  #define NULL				((void *)0)
+  #+END_SRC
+
+  this is what =NULL= really is! just =0= casted as =void *=.
+

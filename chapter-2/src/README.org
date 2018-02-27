@@ -1,0 +1,59 @@
+* types and function prototypes
+  #+BEGIN_SRC c
+    /* ----------- types ----------- */
+    typedef struct FRACTION {
+	int numer, denom;
+    } frac_t;
+
+    typedef enum BOOLEAN {
+	false = (1 == 0),
+	true = !false
+    } bool_t;
+
+    /* ----------- prototypes ----------- */
+    int gcd(int __first, int __second);
+    int gcd3(int __first, int __second, int __third);
+    int __gcd(int __first, int __second);
+    frac_t reduce(frac_t __fraction);
+    frac_t newfrac(int __numerator, int __denumirator);
+    int convert(char *__number);
+    unsigned absolute(int __number);
+    unsigned strlength(const char *__string);
+    double power(int __number, int __to_power);
+    unsigned long binary(unsigned __number);
+
+  #+END_SRC
+* binary.c
+  The idea is that we have a character array of size =SIZE= (which is basically 4 bytes), each time we fill the =index=-th element of =two_power[]= by either =0= or =1= (which is the remainder of =(n % 2)=). And keep deviding the number =n= on 2.
+
+  Next, I used a trick here, which is basically rising 10^{p} wherever we find a 2^{p} =true= i.e. =1= in =two_power[]=, while keep adding the sum to the =binary= number.
+
+  Finally, we return the =binary= number.
+
+* gcd.c
+    #+BEGIN_SRC c
+    int gcd(int foo, int bar);
+    #+END_SRC
+    
+    + the first time, take the remainder of deviding =foo= over =bar=, let's call it =tmp=, then =foo = bar= and =bar = tmp=. keep doing so until =bar eq 0=, if so then =foo= is the /gcd/ of foo and bar. 
+
+    #+BEGIN_SRC c
+    int __gcd(int foo, int bar);
+    #+END_SRC
+    
+    + here, is quiet the same principle, that is to substract =bar= from =foo=, while swapping if =bar > foo= because those are natural operations, until =foo eq 0= then =bar= is the /gcd/ of foo and bar.
+
+    #+BEGIN_SRC c
+    int gcd3(int foo, int bar, int baz);
+    #+END_SRC
+
+    + the rule is that /gcd/ of a, b and c is e such as =d = gcd(a, b)= and =e = gcd(d, c)=, order is not important.
+
+* gcd.f95
+  this the function =gcd(int, int)= implemented in a FORTRAN program.
+* frac.c
+  This is quiet simple, just devide the /numerator/ and the /denominator/ by the =gcd(numerator, denominator)=
+* convert.c
+  the idea is top take the =length= of the passed string =str= and them convert each character to a digit using =chartoint()= and multiplie it with 10^{length} while decrementing =length= each time until there are no more characters.
+
+  the first character is to indicate the sign of the number, ignored by =chartoint()=
