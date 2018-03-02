@@ -8,39 +8,36 @@
 #include "../include/ch3.h"
 
 /* there would be no easy way without doubly linked lists */
-lnode_t kill(unsigned n, unsigned m) {
-    lnode_t head = malloc(sizeof *head),
-	tail = malloc(sizeof *tail);
+list_t kill(unsigned npeople, unsigned deathorder) {
+    list_t list = initlist(); 
 
-    head->data = 1;
-    head->next = tail;
-    for (unsigned i = (n - 1); i > 1; --i) {
-	insertafter(head, i);
+    list->head->data = 1;
+    list->head->next = list->z;
+
+    for (unsigned i = (npeople - 1); i > 1; --i) {
+        addafter(list->head, i);
     }
 
-    tail->next = head;
-    tail->data = n;
-    head = tail;
+    list->z->next = list->head;
+    list->z->data = npeople;
+    list->head = list->z;
     
-    lnode_t tmp = NULL;
-    lnode_t h = malloc(sizeof *h),
-	zz = malloc(sizeof *zz);
-
-    h->next = zz;
-    zz->next = zz;
-
-    while (head != head->next) {
-	for (unsigned i = 0; i < (m - 1); ++i) {
-	    head = head->next;
+    node_t tmp = NULL;
+    list_t order = initlist();
+    
+    while (list->head != list->head->next) {
+	for (unsigned i = 0; i < (deathorder - 1); ++i) {
+	    list->head = list->head->next;
 	}
-	tmp = head->next;
-	head->next = head->next->next;	
-	insertafter(h, tmp->data);
+	
+	tmp = list->head->next;
+	list->head->next = list->head->next->next;	
+	addafter(order->head, tmp->data);
 	free(tmp);
     }
 
-    insertafter(h, head->data);
-    free(head);
+    addafter(order->head, list->head->data);
+    free(list->head);
     
-    return h;
+    return order;
 }

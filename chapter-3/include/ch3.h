@@ -6,57 +6,51 @@
 #include <math.h>
 #include <limits.h>
 
-/* ----------- types ----------- */
 typedef enum BOOLEAN {
     false = (1==0),
     true = !false
 } bool_t;
 
-typedef struct LIST_NODE {
-    struct LIST_NODE *next, *prev;
-    int data;
-} *lnode_t;
-
-typedef struct PARALLEL_ARRAY {
-    unsigned size, limit;
-    unsigned *next, head, z;
-    int *data;
-} *para_list;
-
-typedef struct STACK_NODE {
-    struct STACK_NODE *next;
-    int data;
-} *snode_t;
-
-typedef struct FIXED_SIZE_STACK {
-    unsigned size, limit;
-    int *data;
-} *fstack_t;
-
-typedef struct FIXED_SIZE_QUEUE {
+/* using arrays */
+typedef struct FIXED_SIZE {
     unsigned size, limit;
     unsigned head, z;
+    /* this plays the roll of a function
+     * used only by parallel arrays */
+    unsigned *next;
     int *data;
-} *fqueue_t;
+} *fixed_t;
 
-typedef snode_t qnode_t;
+typedef fixed_t para_list;
+typedef fixed_t fstack_t;
+typedef fixed_t fqueue_t;
 
-typedef struct QUEUE {
-    qnode_t head, z;
-} *queue_t;
+/* using pointers */
+typedef struct NODE {
+    struct NODE *next, *prev;
+    int data;
+} *node_t;
+
+typedef struct LIST {
+    node_t head, z;
+} *list_t;
+
+typedef list_t stack_t;
+typedef list_t queue_t;
+
 
 /* ----------- prototypes ----------- */
 bool_t isprime(unsigned __number);
 void sieve_of_eratosthenes(bool_t *__array, unsigned __sz);
-lnode_t kill(unsigned __npeople, unsigned __tour);
+list_t kill(unsigned __npeople, unsigned __deathorder);
 char *topolish(const char *__equation);
 
 /* ----------- list operations ----------- */
-void initlist(lnode_t *__head, lnode_t *__tail);
-lnode_t insertafter(lnode_t __node, int __value);
-int delnext(lnode_t __node);
-void printlist(lnode_t __head);
-void freelist(lnode_t __head); 
+list_t initlist(void);
+node_t addafter(node_t __node, int __value);
+int rmnext(node_t __node);
+void putlist(list_t __list);
+void freelist(list_t __list); 
 
 /* ----------- parallel lists ----------- */
 para_list initpara(unsigned __length);
@@ -66,11 +60,11 @@ void freepara(para_list __list);
 void printpara(para_list __list);
 
 /* ----------- pushdown stacks ----------- */
-void initstack(snode_t *__head, snode_t *__tail);
-void push(int value, snode_t __head);
-int pop(snode_t __head);
-bool_t isemptystack(snode_t __head, snode_t __tail);
-void freestack(snode_t __head, snode_t __tail);
+stack_t initstack(void);
+void push(int value, stack_t __stack);
+int pop(stack_t __stack);
+bool_t isemptystack(stack_t __stack);
+void freestack(stack_t stack);
 
 /* ----------- fixed size stacks ----------- */
 fstack_t initfstack(unsigned __length);

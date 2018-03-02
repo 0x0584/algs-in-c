@@ -1,12 +1,11 @@
 #include "../include/ch3.h"
 
 char *topolish(const char *equ) {
-    snode_t head, z;
+    stack_t stack = initstack();
     unsigned size = 10;
     char *expr = malloc(size * sizeof(char));
     unsigned i = 0;
 
-    initstack(&head, &z);
     while (*equ) {
 
 	unless ((i + 1) % size) {
@@ -18,14 +17,14 @@ char *topolish(const char *equ) {
 						break;
 	case ')':
 	    expr[i++] = ' ';
-	    expr[i++] = (char) pop(head);
+	    expr[i++] = (char) pop(stack);
 	    expr[i++] = ' ';
 						break;
 	case '+': 
 	case '-': 
 	case '*': 
 	case '/':
-	    push(*equ, head);
+	    push(*equ, stack);
 						break;
 	default:
 	    if (*equ != ' ') {
@@ -39,9 +38,9 @@ char *topolish(const char *equ) {
     }
 
     expr[i++] = ' ';
-    expr[i] = pop(head);
+    expr[i] = pop(stack);
 
-    freestack(head, z);
+    freestack(stack);
     
     return expr;
 }

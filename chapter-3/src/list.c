@@ -1,35 +1,47 @@
 #include "../include/ch3.h"
 
-void initlist(lnode_t *head, lnode_t *z) {
-    *head = malloc(sizeof **head);
-    *z = malloc(sizeof **z);
+list_t initlist(void) {
+    list_t list = malloc(sizeof *list);
 
-    (*head)->next = *z;
-    (*z)->next = *z;
+    list->head = malloc(sizeof *(list->head));
+    list->z = malloc(sizeof *(list->z));
+
+    /* initialize the head */
+    list->head->next = list->z;
+    list->head->prev = NULL;
+
+    /* and also the tail */
+    list->z->next = list->z;
+    list->z->prev = NULL;
+
+    return list;
 }
 
-int delnext(lnode_t foo) {
-    lnode_t bar = foo->next;
-    int data = bar->data;
+int rmnext(node_t node) {
+    node_t next = node->next;
+    int data = next->data;	/* get the data */
 
-    foo->next = foo->next->next;
-    free(bar);
+    node->next = next->next; /* move one further this node */
+    next->prev = node;	     /* set N previous to this node */
     
-    return data;
+    free(next);			/* free the next node */
+    
+    return data;		/* return the data */
 }
 
-lnode_t insertafter(lnode_t foo, int val) {
-    lnode_t bar = malloc(sizeof *bar);
+node_t addafter(node_t node, int val) {
+    node_t new = malloc(sizeof *new);
 
-    bar->data = val;
-    bar->next = foo->next;
-    foo->next = bar;
+    new->data = val;		/* set up the new node */
+    
+    new->next = node->next;	/* set the new node to point on the next */
+    node->next = new;		/* and this one to new node */
 
-    return bar;
+    return new;			/* return the new node */
 }
 
-void printlist(lnode_t head) {
-    lnode_t tmp = head->next;
+void putlist(list_t list) {
+    node_t tmp = list->head->next;
     unsigned i = 0;
 
     puts("---------");
@@ -40,14 +52,14 @@ void printlist(lnode_t head) {
     puts("---------");
 }
 
-void freelist(lnode_t head) {
-    lnode_t tmp;
+void freelist(list_t list) {
+    node_t tmp;
     
-    while (head) {
-	tmp = head;
-	head = head->next;
+    while (list->head) {
+	tmp = list->head;
+	list->head = list->head->next;
 
-	if (tmp == head) break;
+	if (tmp == list->head) break;
 	free(tmp);
     }
 }    

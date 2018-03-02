@@ -15,7 +15,6 @@
 #define FIXED_SIZE			(10)
 
 int main(void) {
-    /*
     bool_t numbers[] = {
 	[0 ... 1] = false,
 	[2 ... LIMIT] = true
@@ -40,25 +39,24 @@ int main(void) {
 
     
     puts("\n-------------- list operations ---------------\n");
-    lnode_t lhead, lz;
+    list_t list = initlist();
+    node_t thisone = addafter(list->head, 5);
+    addafter(list->head, 9);
+    addafter(list->head, 11);
+    addafter(thisone, 69);
+	
+    putlist(list);
 
-    initlist(&lhead, &lz);
+    rmnext(list->head);
+    rmnext(thisone);
+    putlist(list);
 
-    insertafter(lhead, 5);
-    insertafter(lhead, 9);
-    insertafter(lhead, 11);
-    printlist(lhead);
+    freelist(list);
 
-    delnext(lhead);
-    printlist(lhead);
-
-    freelist(lhead);
-
-    
     puts("\n-------------- josephus problem ---------------\n");
-    lnode_t foo = kill(9, 5);
-    printlist(foo);
-    freelist(foo);
+    list_t suicide_order = kill(9, 5);
+    putlist(suicide_order);
+    freelist(suicide_order);
 
     
     puts("\n-------------- parallel lists ---------------\n");
@@ -81,21 +79,19 @@ int main(void) {
     freepara(para);
 
     puts("\n-------------- pushdown stacks ---------------\n");
-    snode_t head, z;
+    stack_t ss = initstack();
 
-    initstack(&head, &z);
-
-    push(5, head);
-    push(5, head);
-    push(5, head);
+    push(5, ss);
+    push(5, ss);
+    push(5, ss);
     
-    printf("5x5x5 is %d\n", pop(head) * pop(head) * pop(head));
-    printf("stack is: %s\n", isemptystack(head, z) ? "t" : "nil");
+    printf("5x5x5 is %d\n", pop(ss) * pop(ss) * pop(ss));
+    printf("stack is: %s\n", isemptystack(ss) ? "t" : "nil");
     
-    push(7, head);
-    printf("stack is: %s\n", isemptystack(head, z) ? "t" : "nil");
+    push(7, ss);
+    printf("stack is: %s\n", isemptystack(ss) ? "t" : "nil");
     
-    freestack(head, z);
+    freestack(ss);
 
     puts("\n-------------- reverse polish notation ---------------\n");
     char *str = topolish("((1 + 5) * (3 - 2)) + (1 - 2)");
@@ -114,8 +110,8 @@ int main(void) {
     puts(isemptyfstack(fixed) ? "t":"nil");
     
     freefstack(fixed);
-    */
 
+    
     puts("\n-------------- fixed size queue ---------------\n");
     fqueue_t q = initfqueue(FIXED_SIZE);
 
@@ -137,9 +133,13 @@ int main(void) {
     put(10, qu);
     put(11, qu);
     put(12, qu);
-    put(13, qu);
 
     printf("%d\n", get(qu) + get(qu));
+    puts(isemptyqueue(qu)? "t" : "nil");
+
+    printf("%d\n", get(qu));
+    printf("%d\n", get(qu));
+
     puts(isemptyqueue(qu)? "t" : "nil");
     
     freequeue(qu);

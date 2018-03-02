@@ -1,41 +1,48 @@
 #include "../include/ch3.h"
 
-void initstack(snode_t *head, snode_t *z) {
-    *head = malloc(sizeof **head);
-    *z = malloc(sizeof **z);
-    (*head)->next = *z;
-    (*head)->data = 0;
-    (*z)->next = *z;
+stack_t initstack(void) {
+    stack_t s;
+    s = malloc(sizeof *s);
+    s->head = malloc(sizeof *(s->head));
+    s->z = malloc(sizeof *(s->z));
+
+    s->head->next = s->z;
+    s->head->data = -1;		/* non sense data */
+    
+    s->z->next = s->z;
+
+    return s;
 }
 
-void push(int val, snode_t head) {
-    snode_t bar = malloc(sizeof *bar);
+void push(int val, stack_t stack) {
+    node_t bar = malloc(sizeof *bar);
 
     bar->data = val;
-    bar->next = head->next;
-    head->next = bar;
+    bar->next = stack->head->next;
+    stack->head->next = bar;
 }
 
-int pop(snode_t head) {
-    snode_t origin = head->next; /* get the node next to the head */
+int pop(stack_t ss) {
+    node_t origin = ss->head->next; /* get the node next to the head */
     int bar;
     
-    head->next = origin->next;	/* move the head one step */
-    bar = origin->data;		/* get the data from the original node */
+    ss->head->next = origin->next; /* move the head one step */
+    bar = origin->data;	     /* get the data from the original node */
 
     free(origin);		/* free the node */
     
     return bar;
 }
 
-bool_t isemptystack(snode_t head, snode_t z) {
-    return head->next == z;
+bool_t isemptystack(stack_t ss) {
+    return ss->head->next == ss->z;
 }
 
-void freestack(snode_t head, snode_t z) {
-    while (!isemptystack(head, z)) {
-	pop(head);
+void freestack(stack_t  ss) {
+    while (!isemptystack(ss)) {
+	pop(ss);		/* pop out everything */
     }
-    free(z);
-    free(head);
+    
+    free(ss->z);
+    free(ss->head);
 }

@@ -1,3 +1,8 @@
+#+TITLE: Chapter 3
+#+AUTHOR: Anas Rchid
+
+#+DATE: nil
+ 
 * types and function prototypes
 
   #+BEGIN_SRC c
@@ -6,17 +11,6 @@
 	false = (1==0),
 	true = !false
     } bool_t;
-
-    typedef struct LIST_NODE {
-	struct LIST_NODE *next, *prev;
-	int data;
-    } *lnode_t;
-
-    typedef struct PARALLEL_ARRAY {
-	unsigned size, limit;
-	unsigned *next, head, z;
-	int *data;
-    } *para_list;
 
     typedef struct STACK_NODE {
 	struct STACK_NODE *next;
@@ -43,16 +37,35 @@
     /* ----------- prototypes ----------- */
     bool_t isprime(unsigned __number);
     void sieve_of_eratosthenes(bool_t *__array, unsigned __sz);
+
     lnode_t kill(unsigned __npeople, unsigned __tour);
     char *topolish(const char *__equation);
 
   #+END_SRC  
-* prime.c
-* josephus-problem.c
-* polish-notation.c
+* arrays
+** prime.c
+   a prime number is just number that is not divisible on anynumber beside 1 and it self. the first approach to this problem would be either devide the number =p= by ever number under its square root. or otherwise, opt out all the numbers that are the result of a product.
+
+   #+BEGIN_SRC c
+     /* the first one using division */
+     bool_t isprime(unsigned __number);
+     /* the second one using the product*/
+     void sieve_of_eratosthenes(bool_t *__array, unsigned __sz);
+
+   #+END_SRC
+   
 * linked list
+
+  list is just nodes connected together, and there are several ways to implement that.
+
 ** using pointers
    #+BEGIN_SRC c
+
+   
+   typedef struct LIST_NODE {
+       struct LIST_NODE *next, *prev;
+       int data;
+   } *lnode_t;
 
   /* ----------- list operations ----------- */
   void initlist(lnode_t *__head, lnode_t *__tail);
@@ -66,6 +79,13 @@
 ** using arrays
    #+BEGIN_SRC c
 
+    typedef struct PARALLEL_ARRAY {
+	unsigned size, limit;
+	unsigned *next, head, z;
+	int *data;
+    } *para_list;
+
+
   /* ----------- parallel lists ----------- */
   para_list initpara(unsigned __length);
   int paradelnext(unsigned __index, para_list __list);
@@ -74,7 +94,7 @@
   void printpara(para_list __list);
 
    #+END_SRC
-
+** josephus-problem.c
 * pushdown stack
 ** using pointers
    #+BEGIN_SRC c
@@ -98,7 +118,7 @@
   void freefstack(fstack_t __stack);
 
    #+END_SRC
-
+** polish-notation.c
 * queue
 ** using pointers
    #+BEGIN_SRC c
