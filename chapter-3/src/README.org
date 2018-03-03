@@ -18,7 +18,7 @@
 #+LATEX_COMPILER: pdflatex
 #+OPTIONS: author:t date:nil
 #+LATEX: \tableofcontents
-#+LATEX: \clearpage 
+#+LATEX: \clearpage
 
 * Arrays
 
@@ -32,7 +32,7 @@
 
   #+END_SRC
 
-  Arrays are just a chunk of memory, which =elem= points to,  devides into a prefixed size, i.e. =limit= of "adjusent cells" which can be referenced using index that indicates thier position in memory. e.g. =foo[4]= is the 5^{th} element in the array =foo=. 
+  Arrays are just a chunk of memory, which =elem= points to,  devides into a prefixed size, i.e. =limit= of "adjusent cells" which can be referenced using index that indicates thier position in memory. e.g. =foo[4]= is the 5^{th} element in the array =foo=.
 
   Arrays are very handy, in fact many programming languages provide built in ways to deal with arrays, e.g. C/C++
 
@@ -55,13 +55,25 @@
    Or otherwise, opt out all the numbers that are the result of a product. And that is the trick in the Sieve of Eratosthenes. To use the index =[i*j]=, which is a clever way to get all indexes that are a result of a product. While =i= ranges from =2= to some /limit/ and =j= ranges from =2= to the /limit/ over =i=.
 
 * Linked List
-  List is just nodes connected together, and there are several ways to implement that.
+  Linked lists are just a set of nodes connected there. Together are several ways to implement that, using either arrays or pointers.
 
 ** Using pointers
 
-   using the C built-in mechanism of /pointers/, we declare a =head= pointer, which points to the first node, and the tail, =z=, which points to itself. Now, in the first place, we initialize a given list, by allocating memory and then setting =head='s next to point to the tail =z=. This would be the case when a list is empty, checked by =isemptylist()= . the insertion and deletion are done using =addafter()= and =rmnext()= respectively. which both operates on the /next/ node relative to a starting point. And we must free everything using =freelist()= protocol.
+   Using the C built-in mechanism of /pointers/, a linked list would be just a head pointed to node that points to another node and the last node is pointing to the tail, while the tail is pointig to itself. In other words something like the following:
 
-   #+BEGIN_SRC c -n
+   #+BEGIN_SRC text
+   									         +-----------+
+   									         |           |
+        head  	               	     node1    	       	           node3         v           |
+    +----+----+    +----+----+    +----+----+    +----+----+    +----+----+    +----+----+   |
+    | -1 |  o----->|  2 |  o----->|  3 |  o----->|  5 |  o----->|  7 |  o----->| -1 |  o-----+
+    +----+----+    +----+----+    +----+----+    +----+----+    +----+----+    +----+----+
+		      node0   	               	    node2                           z
+   #+END_SRC
+
+   Each node, has a =next= node and some piece of data. The implementation would be as following. We initialize a given list, by allocating memory and then setting =head->next= to the tail =z=. This would be the case when a list is empty, checked by =isemptylist()= . the insertion and deletion are done using =addafter()= and =rmnext()= respectively. which both operates on the /next/ node relative to a starting point. And we must free everything using =freelist()= protocol.
+
+   #+BEGIN_SRC c
      typedef struct LIST {
 	 node_t head, z;
      } *list_t;
@@ -71,13 +83,29 @@
      node_t addafter(node_t node, int value);
      int rmnext(node_t node);
      void putlist(list_t list);
-     void freelist(list_t list); 
+     void freelist(list_t list);
    #+END_SRC
 
 ** Using arrays
+   #+BEGIN_SRC text
+       data 	     next
+     +------+      +------+
+     |  -1  | [0]  |   5  | [0] ------------------+
+     +------+      +------+	     +-----+	  |
+     |  -1  | [1]  |   1  | [1] <----+--+  |      |
+     +------+      +------+	   	+--+	  |
+     |   2  | [2]  |   1  | [2] <----+--+	  |
+     +------+      +------+	     |	          |
+     |   3  | [3]  |   2  | [3] <-+--+	          |
+     +------+      +------+	  |		  |
+     |   5  | [4]  |   3  | [4] --+		  |
+     +------+      +------+	                  |
+     |   7  | [5]  |   4  | [5] <-----------------+
+     +------+      +------+
+   #+END_SRC
 
-   Now, instead of the the pointer we have an array of =next= indexes, that would play the roll of linking data in another array together. So, instead of having =node->next->next= we would have =data[next[next[index]]]=. otherwise, it's the same thing as the previous one.
-  
+   Now, instead of the the pointer we have an array of =next= indexes, that would play the roll of linking data in another array together. So, instead of having =node->next->next= we would have =data[next[next[index]]]=. Otherwise, it's the same thing as the previous one.
+
    #+BEGIN_SRC c
      typedef fixed_t para_list;
 
@@ -89,16 +117,17 @@
      void printpara(para_list list);
 
    #+END_SRC
-   
+
 ** josephus-problem.c
-   this problem is about a list of items and an order of /opting out/ elements based on some order
-   
+   This problem is about a list of items and an order of /opting out/ elements based on some order
+
    #+BEGIN_SRC c
-     list_t kill(unsigned npeople, unsigned death_order);
+   list_t kill(unsigned npeople, unsigned death_order);
    #+END_SRC
+
 * Pushdown Stacks - Last In First Out
-  Those are linked lists but with different logic. The main thing is that we keep /pushing/ nodes after the =head=, and when we want to /pop/ we also take node from the head. 
- 
+  Those are just linked lists. The main thing is that we keep /pushing/ nodes after the =head=, and when we want to /pop/ we also take node from the head.
+
 ** Using pointers
    #+BEGIN_SRC c
      typedef list_t stack_t;
@@ -115,7 +144,7 @@
 ** Using arrays
    #+BEGIN_SRC c
    typedef fixed_t fstack_t;
-   
+
   /* ----------- fixed size stacks ----------- */
   fstack_t initfstack(unsigned length);
   void pushfstack(int value, fstack_t stack);
@@ -129,6 +158,9 @@
      char *topolish(const char *equation);
    #+END_SRC
 * Queue - First In First Out
+
+  Queues are just like stacks, getting from the head, but the insertion is at the tail.
+  
 ** Using pointers
    #+BEGIN_SRC c
      typedef list_t queue_t;
@@ -152,7 +184,7 @@
      int getfqueue(fqueue_t queue);
      bool_t isemptyfqueue(fqueue_t queue);
      void freefqueue(fqueue_t queue);
-     
+
    #+END_SRC
 * Used types
 
@@ -162,7 +194,7 @@
 	false = (1==0),
 	true = !false
     } bool_t;
-    
+
     /* using arrays */
     typedef struct FIXED_SIZE {
         unsigned size, limit;
@@ -179,4 +211,4 @@
 	int data;
     } *node_t;
 
-  #+END_SRC  
+  #+END_SRC

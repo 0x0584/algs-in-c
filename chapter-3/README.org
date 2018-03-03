@@ -9,23 +9,27 @@
   + linked lists could be implemented using arrays :: i.e. parallel arrays
   + basic pushdown stacks operations :: =push()= to head, =pop()= from head
   + stacks require fewer space for much operations :: =pop()='s frees the space for =push()='s
+  + queues are like stacks ::  except when it comes to getting some node
+  + chosing what data structure to use :: depends on what problem to solve
 
 * Nice facts
-** about Arrays
+** Arrays
    + if the index is /known/, all arrays accesses are done in /constant time/
    + beside the fact that arrays could be dynamical allocated, they still have the fundamental proprietary such that /their size must be known/ before actually using the array
    + arrays have a direct impact on memory systems, as that we can /think of memory a big array/ while the index is the actual /memory address/
      - some computer /language processors/ *translate* program instructions that involve array usage into rather more effecient instructions that /access the computer memory directly/
    + 1d arrays are mathematical /vectors/ same as 2d arrays are mathematical /matrices/
 
-** about Linked Lists
+** Linked Lists
    suppose we have the following linked list named /list/ that contains { =head= \to =car= \to =tar= \to =foo= \to =z= } while =head= and =z= are the /head/ and /tail/ of the list respectively
 
    + /finding/ elements that are relative to k^{th} position is not suitable for linked lists as that we have to cross the list k times to reache the target node
    + /deleting/ elements do not remove them from the memory, but they've become +comfortably numb+ not accessible if we walk the list from the /head/.
      - matter of fact, the removed element still points to whatever it has pointed to before.
    + /parallel arrays/ has advanteges over using pointers. for instance, data is always in a =key= arrays while links are in a =next= array. this means that data is separated from the links, so that data could be shared or added when needed.
-** about Pushdown Stacks, a.k.a. LIFO -- Last In First Out  
+
+** Pushdown Stacks  
+   + a.k.a. LIFO -- Last In First Out
    + sometimes, there's no need to keep tracking of all the links. which leads to few operations to handle..
    + pushdown stacks are the most important restricted-access data structure.
    + /push/ element to the head of the stack
@@ -36,13 +40,13 @@
 
 *** example 1
    #+BEGIN_SRC C
-   /* this is to compute the following expressing:
-    *	5 x (((9 + 8) x (4 x 6)) + 7) 
-    */
    /* ----------- prototypes ----------- */
    void push(int value);
    int pop();
-    
+
+   /* this is to compute the following expressing:
+    *	5 x (((9 + 8) x (4 x 6)) + 7) 
+    */
    push(5);
    push(9);
    push(8);
@@ -59,6 +63,21 @@
    
    int result = pop();
    #+END_SRC
-** about Queues, a.k.a. FIFO -- First In First Out 
+
+** Queues
+   + a.k.a. FIFO -- First In First Out 
    + same as stack, the only difference is that when =remove()= an element, it's from the back. and when =insert()= an element, it's in the front
-   + queues also could be implemented using either arrays or linked lists ([[about Arrays]], [[about Linked Lists]])
+   + queues also could be implemented using either arrays or linked lists ([[Arrays]], [[Linked Lists]])
+
+** about Abstract Data Type
+   + they are about the idea and a concept of some prticular data structure and not about any implementation details.
+   + the concept would be just a set of /algorthims/ operating o a /data structure/
+   + very useful in large programs
+   + could be implemented using various programming styles and languages
+   + stacks and queues are classic abstract data types
+   + most of the time, we just want some /operation/ and care less about the details
+   + [[Arrays]] and [[Linked Lists]] are called /Linear Lists/, which support operations like insert, delete and access over /sequentially ordered elements/.
+   + Abstract data structures can be used to define another data structures, e.g. [[Queues]] are implemented using either [[Arrays]] or [[Linked Lists]].
+   + programs developed with abstract data types in mind could be integrated easily in larger/different other programs
+   + Operations in all [[Arrays]], [[Linked Lists]], [[Pushdown Stacks]] and [[Queues]] are fundamental
+ 

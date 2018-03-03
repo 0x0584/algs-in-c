@@ -1,14 +1,14 @@
 * Introduction
   the aim of this book, /Algorithms in C/ by R. Sedgewick, is to give a solid introduction to several fields which are in the /core/ of computer science, and other ones that are more specialized and advanced ones.
 
-* Fundamental Algorithms [4/9]
+* Fundamental Algorithms [5/9]
   This part is just a /setup of the required/ stuff in upcoming chapters, this includes:
 
   + [X] Key-features of the *C Programming Language*
   + [X] Arrays
   + [X] Linked Lists
   + [X] Stacks
-  + [ ] Queues
+  + [X] Queues
   + [ ] Trees
   + [ ] Recursion
   + [ ] Analysis of Algorithms
