@@ -10,25 +10,29 @@
 #include <stdlib.h>
 
 #include "../include/ch3.h"
+
 #define LIMIT				(101)
 #define PARA_SIZE			(20)
 #define FIXED_SIZE			(10)
 
 int main(void) {
+    /*
+    puts("\n----------------- my prime -----------------\n");
+    for (unsigned i = 0; i < LIMIT + 1; ++i) {
+    	printf("%u is %sprime%8c", i,
+    	       isprime(i) ? "" : "not ",
+    	       (i+1)%3 ? '\t' : '\n');
+    }
+    */
+    
+
+    /*
     bool_t numbers[] = {
 	[0 ... 1] = false,
 	[2 ... LIMIT] = true
     };
-
-    puts("\n----------------- my prime -----------------\n");
-    for (unsigned i = 0; i < LIMIT + 1; ++i) {
-	printf("%u is %sprime%8c", i,
-	       isprime(i) ? "" : "not ",
-	       (i+1)%3 ? '\t' : '\n');
-    }
-
-    sieve_of_eratosthenes(numbers, LIMIT);
-
+    array_t primes = { LIMIT, (int *) &numbers };
+    sieve_of_eratosthenes(primes);
     
     puts("\n----------- Sieve of Eratosthenes -----------\n");
     for (unsigned i = 0; i < LIMIT + 1; ++i) {
@@ -36,8 +40,9 @@ int main(void) {
 	       numbers[i] ? "" : "not ",
 	       (i+1)%3? "\t" : "\n");   
     } 
-
-    
+    */
+	
+    /*
     puts("\n-------------- list operations ---------------\n");
     list_t list = initlist();
     node_t thisone = addafter(list->head, 5);
@@ -52,13 +57,15 @@ int main(void) {
     putlist(list);
 
     freelist(list);
-
+    */
+    
+    /*
     puts("\n-------------- josephus problem ---------------\n");
     list_t suicide_order = kill(9, 5);
     putlist(suicide_order);
     freelist(suicide_order);
+    */
 
-    
     puts("\n-------------- parallel lists ---------------\n");
 
     para_list para = initpara(PARA_SIZE);
@@ -71,13 +78,14 @@ int main(void) {
     parainsertafter(para->head, 11, para);
     printpara(para);
 
-    paradelnext(para->next[para->head], para);
+    paradelnext(para->next.elem[para->head], para);
     paradelnext(para->head, para);
     printpara(para);
 
     
     freepara(para);
 
+    /*
     puts("\n-------------- pushdown stacks ---------------\n");
     stack_t ss = initstack();
 
@@ -92,12 +100,16 @@ int main(void) {
     printf("stack is: %s\n", isemptystack(ss) ? "t" : "nil");
     
     freestack(ss);
+    */
 
+    /*
     puts("\n-------------- reverse polish notation ---------------\n");
     char *str = topolish("((1 + 5) * (3 - 2)) + (1 - 2)");
     puts(str);
     free(str);
+    */
 
+    /*
     puts("\n-------------- fixed size stacks ---------------\n");
 
     fstack_t fixed = initfstack(50);
@@ -110,8 +122,9 @@ int main(void) {
     puts(isemptyfstack(fixed) ? "t":"nil");
     
     freefstack(fixed);
+    */
 
-    
+    /*
     puts("\n-------------- fixed size queue ---------------\n");
     fqueue_t q = initfqueue(FIXED_SIZE);
 
@@ -125,7 +138,9 @@ int main(void) {
     printf("is queue empty? %s\n", isemptyfqueue(q) ? "t" : "nil");
 	
     freefqueue(q);
+    */
 
+    /*
     puts("\n-------------- queue ---------------\n");
 
     queue_t qu = initqueue();
@@ -143,6 +158,7 @@ int main(void) {
     puts(isemptyqueue(qu)? "t" : "nil");
     
     freequeue(qu);
+    */
     
     return 0;
 }

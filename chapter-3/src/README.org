@@ -1,9 +1,160 @@
 #+TITLE: Chapter 3
 #+AUTHOR: Anas Rchid
 
-#+DATE: nil
+#+OPTIONS: toc:nil
+#+LaTeX_CLASS_OPTIONS: [a4paper,twoside]
+#+LaTeX_CLASS_OPTIONS: [captions=tableheading]
+
+#+LATEX_HEADER: \usepackage[margin=0.95in]{geometry}
+
+#+LaTeX_HEADER: \hypersetup {
+#+LaTeX_HEADER:     colorlinks,
+#+LaTeX_HEADER:     citecolor=black,
+#+LaTeX_HEADER:     filecolor=black,
+#+LaTeX_HEADER:     linkcolor=blue,
+#+LaTeX_HEADER:     urlcolor=blue
+#+LaTeX_HEADER: }
+
+#+LATEX_COMPILER: pdflatex
+#+OPTIONS: author:t date:nil
+#+LATEX: \tableofcontents
+#+LATEX: \clearpage 
+
+* Arrays
+
+  #+BEGIN_SRC c
+    /* this approach is not so practical
+     * but for educational purpose */
+    typedef struct ARRAY {
+	unsigned limit;
+	int *elem;
+    } array_t;
+
+  #+END_SRC
+
+  Arrays are just a chunk of memory, which =elem= points to,  devides into a prefixed size, i.e. =limit= of "adjusent cells" which can be referenced using index that indicates thier position in memory. e.g. =foo[4]= is the 5^{th} element in the array =foo=. 
+
+  Arrays are very handy, in fact many programming languages provide built in ways to deal with arrays, e.g. C/C++
+
+** prime.c
+   A prime number is just number that is not divisible on anynumber beside 1 and it self.
+
+   #+BEGIN_SRC c
+     /* the first one using division */
+     bool_t isprime(unsigned number);
+   #+END_SRC
+
+   the first approach to this problem would be either devide the number =p= by ever number under its square root.
+
+   #+BEGIN_SRC c
+     /* the second one using the product*/
+     void sieve_of_eratosthenes(array_t numbers);
+
+   #+END_SRC
+
+   Or otherwise, opt out all the numbers that are the result of a product. And that is the trick in the Sieve of Eratosthenes. To use the index =[i*j]=, which is a clever way to get all indexes that are a result of a product. While =i= ranges from =2= to some /limit/ and =j= ranges from =2= to the /limit/ over =i=.
+
+* Linked List
+  List is just nodes connected together, and there are several ways to implement that.
+
+** Using pointers
+
+   using the C built-in mechanism of /pointers/, we declare a =head= pointer, which points to the first node, and the tail, =z=, which points to itself. Now, in the first place, we initialize a given list, by allocating memory and then setting =head='s next to point to the tail =z=. This would be the case when a list is empty, checked by =isemptylist()= . the insertion and deletion are done using =addafter()= and =rmnext()= respectively. which both operates on the /next/ node relative to a starting point. And we must free everything using =freelist()= protocol.
+
+   #+BEGIN_SRC c -n
+     typedef struct LIST {
+	 node_t head, z;
+     } *list_t;
+
+     /* ----------- list operations ----------- */
+     list_t initlist(void);
+     node_t addafter(node_t node, int value);
+     int rmnext(node_t node);
+     void putlist(list_t list);
+     void freelist(list_t list); 
+   #+END_SRC
+
+** Using arrays
+
+   Now, instead of the the pointer we have an array of =next= indexes, that would play the roll of linking data in another array together. So, instead of having =node->next->next= we would have =data[next[next[index]]]=. otherwise, it's the same thing as the previous one.
+  
+   #+BEGIN_SRC c
+     typedef fixed_t para_list;
+
+     /* ----------- parallel lists ----------- */
+     para_list initpara(unsigned length);
+     int paradelnext(unsigned index, para_list list);
+     bool_t parainsertafter(unsigned node, int val, para_list list);
+     void freepara(para_list list);
+     void printpara(para_list list);
+
+   #+END_SRC
+   
+** josephus-problem.c
+   this problem is about a list of items and an order of /opting out/ elements based on some order
+   
+   #+BEGIN_SRC c
+     list_t kill(unsigned npeople, unsigned death_order);
+   #+END_SRC
+* Pushdown Stacks - Last In First Out
+  Those are linked lists but with different logic. The main thing is that we keep /pushing/ nodes after the =head=, and when we want to /pop/ we also take node from the head. 
  
-* types and function prototypes
+** Using pointers
+   #+BEGIN_SRC c
+     typedef list_t stack_t;
+
+     /* ----------- pushdown stacks ----------- */
+     stack_t initstack(void);
+     void push(int value, stack_t stack);
+     int pop(stack_t stack);
+     bool_t isemptystack(stack_t stack);
+     void freestack(stack_t stack);
+
+   #+END_SRC
+
+** Using arrays
+   #+BEGIN_SRC c
+   typedef fixed_t fstack_t;
+   
+  /* ----------- fixed size stacks ----------- */
+  fstack_t initfstack(unsigned length);
+  void pushfstack(int value, fstack_t stack);
+  int popfstack(fstack_t stack);
+  bool_t isemptyfstack(fstack_t stack);
+  void freefstack(fstack_t stack);
+
+   #+END_SRC
+** polish-notation.c
+   #+BEGIN_SRC c
+     char *topolish(const char *equation);
+   #+END_SRC
+* Queue - First In First Out
+** Using pointers
+   #+BEGIN_SRC c
+     typedef list_t queue_t;
+
+     /* ----------- queues ----------- */
+     queue_t initqueue(void);
+     void put(int value, queue_t queue);
+     int get(queue_t queue);
+     bool_t isemptyqueue(queue_t queue);
+     void freequeue(queue_t queue);
+
+   #+END_SRC
+
+** Using arrays
+   #+BEGIN_SRC c
+     typedef fixed_t fqueue_t;
+
+     /* ----------- fixed size queues ----------- */
+     fqueue_t initfqueue(unsigned length);
+     void putfqueue(int value, fqueue_t queue);
+     int getfqueue(fqueue_t queue);
+     bool_t isemptyfqueue(fqueue_t queue);
+     void freefqueue(fqueue_t queue);
+     
+   #+END_SRC
+* Used types
 
   #+BEGIN_SRC c
     /* ----------- types ----------- */
@@ -11,134 +162,21 @@
 	false = (1==0),
 	true = !false
     } bool_t;
-
-    typedef struct STACK_NODE {
-	struct STACK_NODE *next;
-	int data;
-    } *snode_t;
-
-    typedef struct FIXED_SIZE_STACK {
-	unsigned size, limit;
-	int *data;
-    } *fstack_t;
-
-    typedef struct FIXED_SIZE_QUEUE {
-	unsigned size, limit;
+    
+    /* using arrays */
+    typedef struct FIXED_SIZE {
+        unsigned size, limit;
 	unsigned head, z;
+	/* this plays the roll of a function
+	 * used only by parallel arrays */
+	unsigned *next;
 	int *data;
-    } *fqueue_t;
+    } *fixed_t;
 
-    typedef snode_t qnode_t;	/* has the same exact structure */
-
-    typedef struct QUEUE {
-	qnode_t head, z;
-    } *queue_t;
-
-    /* ----------- prototypes ----------- */
-    bool_t isprime(unsigned __number);
-    void sieve_of_eratosthenes(bool_t *__array, unsigned __sz);
-
-    lnode_t kill(unsigned __npeople, unsigned __tour);
-    char *topolish(const char *__equation);
+    /* using pointers */
+    typedef struct NODE {
+        struct NODE *next;
+	int data;
+    } *node_t;
 
   #+END_SRC  
-* arrays
-** prime.c
-   a prime number is just number that is not divisible on anynumber beside 1 and it self. the first approach to this problem would be either devide the number =p= by ever number under its square root. or otherwise, opt out all the numbers that are the result of a product.
-
-   #+BEGIN_SRC c
-     /* the first one using division */
-     bool_t isprime(unsigned __number);
-     /* the second one using the product*/
-     void sieve_of_eratosthenes(bool_t *__array, unsigned __sz);
-
-   #+END_SRC
-   
-* linked list
-
-  list is just nodes connected together, and there are several ways to implement that.
-
-** using pointers
-   #+BEGIN_SRC c
-
-   
-   typedef struct LIST_NODE {
-       struct LIST_NODE *next, *prev;
-       int data;
-   } *lnode_t;
-
-  /* ----------- list operations ----------- */
-  void initlist(lnode_t *__head, lnode_t *__tail);
-  lnode_t insertafter(lnode_t __node, int __value);
-  int delnext(lnode_t __node);
-  void printlist(lnode_t __head);
-  void freelist(lnode_t __head); 
-
-   #+END_SRC
-
-** using arrays
-   #+BEGIN_SRC c
-
-    typedef struct PARALLEL_ARRAY {
-	unsigned size, limit;
-	unsigned *next, head, z;
-	int *data;
-    } *para_list;
-
-
-  /* ----------- parallel lists ----------- */
-  para_list initpara(unsigned __length);
-  int paradelnext(unsigned __index, para_list __list);
-  bool_t parainsertafter(unsigned __node, int __val, para_list __list);
-  void freepara(para_list __list);
-  void printpara(para_list __list);
-
-   #+END_SRC
-** josephus-problem.c
-* pushdown stack
-** using pointers
-   #+BEGIN_SRC c
-
-  /* ----------- pushdown stacks ----------- */
-  void initstack(snode_t *__head, snode_t *__tail);
-  void push(int value, snode_t __head);
-  int pop(snode_t __head);
-  bool_t isemptystack(snode_t __head, snode_t __tail);
-  void freestack(snode_t __head, snode_t __tail);
-
-   #+END_SRC
-
-** using arrays
-   #+BEGIN_SRC c
-  /* ----------- fixed size stacks ----------- */
-  fstack_t initfstack(unsigned __length);
-  void pushfstack(int __value, fstack_t __stack);
-  int popfstack(fstack_t __stack);
-  bool_t isemptyfstack(fstack_t __stack);
-  void freefstack(fstack_t __stack);
-
-   #+END_SRC
-** polish-notation.c
-* queue
-** using pointers
-   #+BEGIN_SRC c
-
-  /* ----------- queues ----------- */
-  queue_t initqueue(void);
-  void put(int value, queue_t __queue);
-  int get(queue_t __queue);
-  bool_t isemptyqueue(queue_t __queue);
-  void freequeue(queue_t __queue);
-
-   #+END_SRC
-
-** using arrays
-   #+BEGIN_SRC c
-  /* ----------- fixed size queues ----------- */
-  fqueue_t initfqueue(unsigned __length);
-  void putfqueue(int __value, fqueue_t __queue);
-  int getfqueue(fqueue_t __queue);
-  bool_t isemptyfqueue(fqueue_t __queue);
-  void freefqueue(fqueue_t __queue);
-
-   #+END_SRC

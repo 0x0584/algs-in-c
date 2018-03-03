@@ -8,11 +8,9 @@ list_t initlist(void) {
 
     /* initialize the head */
     list->head->next = list->z;
-    list->head->prev = NULL;
 
     /* and also the tail */
     list->z->next = list->z;
-    list->z->prev = NULL;
 
     return list;
 }
@@ -22,7 +20,6 @@ int rmnext(node_t node) {
     int data = next->data;	/* get the data */
 
     node->next = next->next; /* move one further this node */
-    next->prev = node;	     /* set N previous to this node */
     
     free(next);			/* free the next node */
     
@@ -50,6 +47,10 @@ void putlist(list_t list) {
 	tmp = tmp->next;	
     }
     puts("---------");
+}
+
+bool_t isemptylist(list_t list) {
+    return list->head->next == list->z;
 }
 
 void freelist(list_t list) {

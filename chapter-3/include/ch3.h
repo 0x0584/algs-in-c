@@ -11,37 +11,38 @@ typedef enum BOOLEAN {
     true = !false
 } bool_t;
 
-/* using arrays */
-typedef struct FIXED_SIZE {
-    unsigned size, limit;
-    unsigned head, z;
-    /* this plays the roll of a function
-     * used only by parallel arrays */
-    unsigned *next;
-    int *data;
-} *fixed_t;
+typedef struct ARRAY {
+    unsigned limit;
+    int *elem;
+} array_t;
 
-typedef fixed_t para_list;
-typedef fixed_t fstack_t;
-typedef fixed_t fqueue_t;
-
-/* using pointers */
 typedef struct NODE {
-    struct NODE *next, *prev;
+    struct NODE *next;
     int data;
 } *node_t;
 
+/* static structure using arrays */
+typedef struct FIXED_SIZE {
+    array_t next;		/* used only by parallel arrays */
+    array_t data;
+    unsigned size, head, z;
+} *fixed_t;
+
+typedef fixed_t para_list;	/* parallel arrays: static linked lists */
+typedef fixed_t fstack_t;	/* static stack */
+typedef fixed_t fqueue_t;	/* static queue */
+
+/* dynamic structure using pointers */
 typedef struct LIST {
     node_t head, z;
 } *list_t;
 
-typedef list_t stack_t;
-typedef list_t queue_t;
-
+typedef list_t stack_t;		/* dynamic-size stack */
+typedef list_t queue_t;		/* dynamic-size queues */
 
 /* ----------- prototypes ----------- */
 bool_t isprime(unsigned __number);
-void sieve_of_eratosthenes(bool_t *__array, unsigned __sz);
+void sieve_of_eratosthenes(array_t __numbers);
 list_t kill(unsigned __npeople, unsigned __deathorder);
 char *topolish(const char *__equation);
 

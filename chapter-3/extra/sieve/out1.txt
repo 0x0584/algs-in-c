@@ -1,0 +1,421 @@
+size: 101
+i: 2
+j:2	 ixj: 4
+j:3	 ixj: 6
+j:4	 ixj: 8
+j:5	 ixj: 10
+j:6	 ixj: 12
+j:7	 ixj: 14
+j:8	 ixj: 16
+j:9	 ixj: 18
+j:10	 ixj: 20
+j:11	 ixj: 22
+j:12	 ixj: 24
+j:13	 ixj: 26
+j:14	 ixj: 28
+j:15	 ixj: 30
+j:16	 ixj: 32
+j:17	 ixj: 34
+j:18	 ixj: 36
+j:19	 ixj: 38
+j:20	 ixj: 40
+j:21	 ixj: 42
+j:22	 ixj: 44
+j:23	 ixj: 46
+j:24	 ixj: 48
+j:25	 ixj: 50
+j:26	 ixj: 52
+j:27	 ixj: 54
+j:28	 ixj: 56
+j:29	 ixj: 58
+j:30	 ixj: 60
+j:31	 ixj: 62
+j:32	 ixj: 64
+j:33	 ixj: 66
+j:34	 ixj: 68
+j:35	 ixj: 70
+j:36	 ixj: 72
+j:37	 ixj: 74
+j:38	 ixj: 76
+j:39	 ixj: 78
+j:40	 ixj: 80
+j:41	 ixj: 82
+j:42	 ixj: 84
+j:43	 ixj: 86
+j:44	 ixj: 88
+j:45	 ixj: 90
+j:46	 ixj: 92
+j:47	 ixj: 94
+j:48	 ixj: 96
+j:49	 ixj: 98
+j:50	 ixj: 100
+---
+i: 3
+j:2	 ixj: 6
+j:3	 ixj: 9
+j:4	 ixj: 12
+j:5	 ixj: 15
+j:6	 ixj: 18
+j:7	 ixj: 21
+j:8	 ixj: 24
+j:9	 ixj: 27
+j:10	 ixj: 30
+j:11	 ixj: 33
+j:12	 ixj: 36
+j:13	 ixj: 39
+j:14	 ixj: 42
+j:15	 ixj: 45
+j:16	 ixj: 48
+j:17	 ixj: 51
+j:18	 ixj: 54
+j:19	 ixj: 57
+j:20	 ixj: 60
+j:21	 ixj: 63
+j:22	 ixj: 66
+j:23	 ixj: 69
+j:24	 ixj: 72
+j:25	 ixj: 75
+j:26	 ixj: 78
+j:27	 ixj: 81
+j:28	 ixj: 84
+j:29	 ixj: 87
+j:30	 ixj: 90
+j:31	 ixj: 93
+j:32	 ixj: 96
+j:33	 ixj: 99
+---
+i: 4
+j:2	 ixj: 8
+j:3	 ixj: 12
+j:4	 ixj: 16
+j:5	 ixj: 20
+j:6	 ixj: 24
+j:7	 ixj: 28
+j:8	 ixj: 32
+j:9	 ixj: 36
+j:10	 ixj: 40
+j:11	 ixj: 44
+j:12	 ixj: 48
+j:13	 ixj: 52
+j:14	 ixj: 56
+j:15	 ixj: 60
+j:16	 ixj: 64
+j:17	 ixj: 68
+j:18	 ixj: 72
+j:19	 ixj: 76
+j:20	 ixj: 80
+j:21	 ixj: 84
+j:22	 ixj: 88
+j:23	 ixj: 92
+j:24	 ixj: 96
+j:25	 ixj: 100
+---
+i: 5
+j:2	 ixj: 10
+j:3	 ixj: 15
+j:4	 ixj: 20
+j:5	 ixj: 25
+j:6	 ixj: 30
+j:7	 ixj: 35
+j:8	 ixj: 40
+j:9	 ixj: 45
+j:10	 ixj: 50
+j:11	 ixj: 55
+j:12	 ixj: 60
+j:13	 ixj: 65
+j:14	 ixj: 70
+j:15	 ixj: 75
+j:16	 ixj: 80
+j:17	 ixj: 85
+j:18	 ixj: 90
+j:19	 ixj: 95
+j:20	 ixj: 100
+---
+i: 6
+j:2	 ixj: 12
+j:3	 ixj: 18
+j:4	 ixj: 24
+j:5	 ixj: 30
+j:6	 ixj: 36
+j:7	 ixj: 42
+j:8	 ixj: 48
+j:9	 ixj: 54
+j:10	 ixj: 60
+j:11	 ixj: 66
+j:12	 ixj: 72
+j:13	 ixj: 78
+j:14	 ixj: 84
+j:15	 ixj: 90
+j:16	 ixj: 96
+---
+i: 7
+j:2	 ixj: 14
+j:3	 ixj: 21
+j:4	 ixj: 28
+j:5	 ixj: 35
+j:6	 ixj: 42
+j:7	 ixj: 49
+j:8	 ixj: 56
+j:9	 ixj: 63
+j:10	 ixj: 70
+j:11	 ixj: 77
+j:12	 ixj: 84
+j:13	 ixj: 91
+j:14	 ixj: 98
+---
+i: 8
+j:2	 ixj: 16
+j:3	 ixj: 24
+j:4	 ixj: 32
+j:5	 ixj: 40
+j:6	 ixj: 48
+j:7	 ixj: 56
+j:8	 ixj: 64
+j:9	 ixj: 72
+j:10	 ixj: 80
+j:11	 ixj: 88
+j:12	 ixj: 96
+---
+i: 9
+j:2	 ixj: 18
+j:3	 ixj: 27
+j:4	 ixj: 36
+j:5	 ixj: 45
+j:6	 ixj: 54
+j:7	 ixj: 63
+j:8	 ixj: 72
+j:9	 ixj: 81
+j:10	 ixj: 90
+j:11	 ixj: 99
+---
+i: 10
+j:2	 ixj: 20
+j:3	 ixj: 30
+j:4	 ixj: 40
+j:5	 ixj: 50
+j:6	 ixj: 60
+j:7	 ixj: 70
+j:8	 ixj: 80
+j:9	 ixj: 90
+j:10	 ixj: 100
+---
+i: 11
+j:2	 ixj: 22
+j:3	 ixj: 33
+j:4	 ixj: 44
+j:5	 ixj: 55
+j:6	 ixj: 66
+j:7	 ixj: 77
+j:8	 ixj: 88
+j:9	 ixj: 99
+---
+i: 12
+j:2	 ixj: 24
+j:3	 ixj: 36
+j:4	 ixj: 48
+j:5	 ixj: 60
+j:6	 ixj: 72
+j:7	 ixj: 84
+j:8	 ixj: 96
+---
+i: 13
+j:2	 ixj: 26
+j:3	 ixj: 39
+j:4	 ixj: 52
+j:5	 ixj: 65
+j:6	 ixj: 78
+j:7	 ixj: 91
+---
+i: 14
+j:2	 ixj: 28
+j:3	 ixj: 42
+j:4	 ixj: 56
+j:5	 ixj: 70
+j:6	 ixj: 84
+j:7	 ixj: 98
+---
+i: 15
+j:2	 ixj: 30
+j:3	 ixj: 45
+j:4	 ixj: 60
+j:5	 ixj: 75
+j:6	 ixj: 90
+---
+i: 16
+j:2	 ixj: 32
+j:3	 ixj: 48
+j:4	 ixj: 64
+j:5	 ixj: 80
+j:6	 ixj: 96
+---
+i: 17
+j:2	 ixj: 34
+j:3	 ixj: 51
+j:4	 ixj: 68
+j:5	 ixj: 85
+---
+i: 18
+j:2	 ixj: 36
+j:3	 ixj: 54
+j:4	 ixj: 72
+j:5	 ixj: 90
+---
+i: 19
+j:2	 ixj: 38
+j:3	 ixj: 57
+j:4	 ixj: 76
+j:5	 ixj: 95
+---
+i: 20
+j:2	 ixj: 40
+j:3	 ixj: 60
+j:4	 ixj: 80
+j:5	 ixj: 100
+---
+i: 21
+j:2	 ixj: 42
+j:3	 ixj: 63
+j:4	 ixj: 84
+---
+i: 22
+j:2	 ixj: 44
+j:3	 ixj: 66
+j:4	 ixj: 88
+---
+i: 23
+j:2	 ixj: 46
+j:3	 ixj: 69
+j:4	 ixj: 92
+---
+i: 24
+j:2	 ixj: 48
+j:3	 ixj: 72
+j:4	 ixj: 96
+---
+i: 25
+j:2	 ixj: 50
+j:3	 ixj: 75
+j:4	 ixj: 100
+---
+i: 26
+j:2	 ixj: 52
+j:3	 ixj: 78
+---
+i: 27
+j:2	 ixj: 54
+j:3	 ixj: 81
+---
+i: 28
+j:2	 ixj: 56
+j:3	 ixj: 84
+---
+i: 29
+j:2	 ixj: 58
+j:3	 ixj: 87
+---
+i: 30
+j:2	 ixj: 60
+j:3	 ixj: 90
+---
+i: 31
+j:2	 ixj: 62
+j:3	 ixj: 93
+---
+i: 32
+j:2	 ixj: 64
+j:3	 ixj: 96
+---
+i: 33
+j:2	 ixj: 66
+j:3	 ixj: 99
+---
+i: 34
+j:2	 ixj: 68
+---
+i: 35
+j:2	 ixj: 70
+---
+i: 36
+j:2	 ixj: 72
+---
+i: 37
+j:2	 ixj: 74
+---
+i: 38
+j:2	 ixj: 76
+---
+i: 39
+j:2	 ixj: 78
+---
+i: 40
+j:2	 ixj: 80
+---
+i: 41
+j:2	 ixj: 82
+---
+i: 42
+j:2	 ixj: 84
+---
+i: 43
+j:2	 ixj: 86
+---
+i: 44
+j:2	 ixj: 88
+---
+i: 45
+j:2	 ixj: 90
+---
+i: 46
+j:2	 ixj: 92
+---
+i: 47
+j:2	 ixj: 94
+---
+i: 48
+j:2	 ixj: 96
+---
+i: 49
+j:2	 ixj: 98
+---
+i: 50
+j:2	 ixj: 100
+---
+
+ counter: 283
+
+----------- Sieve of Eratosthenes -----------
+
+0 is not prime       	1 is not prime       	2 is prime       
+3 is prime       	4 is not prime       	5 is prime       
+6 is not prime       	7 is prime       	8 is not prime       
+9 is not prime       	10 is not prime       	11 is prime       
+12 is not prime       	13 is prime       	14 is not prime       
+15 is not prime       	16 is not prime       	17 is prime       
+18 is not prime       	19 is prime       	20 is not prime       
+21 is not prime       	22 is not prime       	23 is prime       
+24 is not prime       	25 is not prime       	26 is not prime       
+27 is not prime       	28 is not prime       	29 is prime       
+30 is not prime       	31 is prime       	32 is not prime       
+33 is not prime       	34 is not prime       	35 is not prime       
+36 is not prime       	37 is prime       	38 is not prime       
+39 is not prime       	40 is not prime       	41 is prime       
+42 is not prime       	43 is prime       	44 is not prime       
+45 is not prime       	46 is not prime       	47 is prime       
+48 is not prime       	49 is not prime       	50 is not prime       
+51 is not prime       	52 is not prime       	53 is prime       
+54 is not prime       	55 is not prime       	56 is not prime       
+57 is not prime       	58 is not prime       	59 is prime       
+60 is not prime       	61 is prime       	62 is not prime       
+63 is not prime       	64 is not prime       	65 is not prime       
+66 is not prime       	67 is prime       	68 is not prime       
+69 is not prime       	70 is not prime       	71 is prime       
+72 is not prime       	73 is prime       	74 is not prime       
+75 is not prime       	76 is not prime       	77 is not prime       
+78 is not prime       	79 is prime       	80 is not prime       
+81 is not prime       	82 is not prime       	83 is prime       
+84 is not prime       	85 is not prime       	86 is not prime       
+87 is not prime       	88 is not prime       	89 is prime       
+90 is not prime       	91 is not prime       	92 is not prime       
+93 is not prime       	94 is not prime       	95 is not prime       
+96 is not prime       	97 is prime       	98 is not prime       
+99 is not prime       	100 is not prime       	101 is prime       

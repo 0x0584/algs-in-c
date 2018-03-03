@@ -3,8 +3,8 @@
 fqueue_t initfqueue(unsigned length) {
     fqueue_t que = malloc(sizeof *que);
 
-    que->limit = ++length;
-    que->data = malloc(length * sizeof(int));
+    que->data.limit = ++length;
+    que->data.elem = malloc(length * sizeof(int));
     que->head = 0;
     que->z = 0;
     que->size = 0;
@@ -13,18 +13,18 @@ fqueue_t initfqueue(unsigned length) {
 }
 
 void putfqueue(int val, fqueue_t que) {
-    que->data[que->z++] = val;
+    que->data.elem[que->z++] = val;
     que->size++;
 	
-    if (que->z == que->limit) {
+    if (que->z == que->data.limit) {
 	que->z = que->size = 0;	
     } 
 }
 
 int getfqueue(fqueue_t que) {
-    int tmp = que->data[que->head++];
+    int tmp = que->data.elem[que->head++];
     
-    if (que->head == que->limit) {
+    if (que->head == que->data.limit) {
 	que->head = que->size = 0;
     }
 
@@ -36,6 +36,6 @@ bool_t isemptyfqueue(fqueue_t que) {
 }
 
 void freefqueue(fqueue_t que) {
-    free(que->data);
+    free(que->data.elem);
     free(que);
 }

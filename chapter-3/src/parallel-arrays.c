@@ -4,11 +4,11 @@ para_list initpara(unsigned length) {
     para_list list = malloc(sizeof *list);
 
     /* init size plus head and tail */
-    list->limit = (length + 2);
+    list->data.limit = list->next.limit = (length + 2);
 
     /* allocate the memory */
-    list->data = malloc((length + 2) * sizeof(int));
-    list->next = malloc((length + 2) * sizeof(unsigned));
+    list->data.elem = malloc((length + 2) * sizeof(int));
+    list->next.elem = malloc((length + 2) * sizeof(unsigned));
 
     /* init indexes */
     list->head = 0;
@@ -16,11 +16,11 @@ para_list initpara(unsigned length) {
     list->size = 2;
 
     /* init "links" */
-    list->next[list->head] = list->z;
-    list->next[list->z] = list->z;
+    list->next.elem[list->head] = list->z;
+    list->next.elem[list->z] = list->z;
 
     /* init data */
-    list->data[list->z] = list->data[list->head] = -1;
+    list->data.elem[list->z] = list->data.elem[list->head] = -1;
     
     return list;
 }
@@ -28,9 +28,9 @@ para_list initpara(unsigned length) {
 void printpara(para_list list) {
     puts("-----------");
     for (unsigned i = 0; i < (list->size); ++i) {
-	printf("%u has value of %d\tand points to %u \n", i,
-	       list->data[i],
-	       list->next[i]);
+	printf("%u has value of %d\tand points to %d \n", i,
+	       list->data.elem[i],
+	       list->next.elem[i]);
     }
     puts("-----------");
 }
@@ -44,34 +44,33 @@ int paradelnext(unsigned index, para_list list) {
 	return INT_MIN;
     }
     
-    int data = list->next[index];
+    int data = list->next.elem[index];
 
     /* override the previous link */
-    list->next[index] = list->next[list->next[index]];
+    list->next.elem[index] = list->next.elem[list->next.elem[index]];
     list->size--;
 
     return data;
 }
 
 bool_t parainsertafter(unsigned node, int val, para_list list) {
-    if (list->size == list->limit) {
+    if (list->size == list->data.limit) {
 	puts("list is full");
 	return false;
     }
     
     /* insert and edit links */
-    list->data[list->size] = val;
-    list->next[list->size] = list->next[node];
-    list->next[node] = list->size;
+    list->data.elem[list->size] = val;
+    list->next.elem[list->size] = list->next.elem[node];
+    list->next.elem[node] = list->size;
 
-    /* increase the size*/
-    list->size++;
+    list->size++;		/* increase the size*/
 
     return true;
 }
 
 void freepara(para_list list) {
-    free(list->data);
-    free(list->next);
+    free(list->data.elem);
+    free(list->next.elem);
     free(list);
 }

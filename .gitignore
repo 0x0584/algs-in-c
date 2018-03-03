@@ -1,4 +1,7 @@
 TAGS
+*.pyg
+*.tex
+*.pdf
 # Created by https://www.gitignore.io/api/c,linux,basic,emacs
 
 ### Basic ###

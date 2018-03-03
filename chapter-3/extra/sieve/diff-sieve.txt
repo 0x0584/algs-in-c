@@ -1,0 +1,275 @@
+-*- (diff-mode) -*-
+diff -u /home/arfed/Workspace/algs-in-c/chapter-3/out1.txt /home/arfed/Workspace/algs-in-c/chapter-3/out0.txt
+--- /home/arfed/Workspace/algs-in-c/chapter-3/out1.txt	2018-03-02 12:58:03.900261034 +0000
++++ /home/arfed/Workspace/algs-in-c/chapter-3/out0.txt	2018-03-02 12:56:40.764224779 +0000
+@@ -85,30 +85,6 @@
+ j:33	 ixj: 99
+ ---
+ i: 4
+-j:2	 ixj: 8
+-j:3	 ixj: 12
+-j:4	 ixj: 16
+-j:5	 ixj: 20
+-j:6	 ixj: 24
+-j:7	 ixj: 28
+-j:8	 ixj: 32
+-j:9	 ixj: 36
+-j:10	 ixj: 40
+-j:11	 ixj: 44
+-j:12	 ixj: 48
+-j:13	 ixj: 52
+-j:14	 ixj: 56
+-j:15	 ixj: 60
+-j:16	 ixj: 64
+-j:17	 ixj: 68
+-j:18	 ixj: 72
+-j:19	 ixj: 76
+-j:20	 ixj: 80
+-j:21	 ixj: 84
+-j:22	 ixj: 88
+-j:23	 ixj: 92
+-j:24	 ixj: 96
+-j:25	 ixj: 100
+ ---
+ i: 5
+ j:2	 ixj: 10
+@@ -132,21 +108,6 @@
+ j:20	 ixj: 100
+ ---
+ i: 6
+-j:2	 ixj: 12
+-j:3	 ixj: 18
+-j:4	 ixj: 24
+-j:5	 ixj: 30
+-j:6	 ixj: 36
+-j:7	 ixj: 42
+-j:8	 ixj: 48
+-j:9	 ixj: 54
+-j:10	 ixj: 60
+-j:11	 ixj: 66
+-j:12	 ixj: 72
+-j:13	 ixj: 78
+-j:14	 ixj: 84
+-j:15	 ixj: 90
+-j:16	 ixj: 96
+ ---
+ i: 7
+ j:2	 ixj: 14
+@@ -164,40 +125,10 @@
+ j:14	 ixj: 98
+ ---
+ i: 8
+-j:2	 ixj: 16
+-j:3	 ixj: 24
+-j:4	 ixj: 32
+-j:5	 ixj: 40
+-j:6	 ixj: 48
+-j:7	 ixj: 56
+-j:8	 ixj: 64
+-j:9	 ixj: 72
+-j:10	 ixj: 80
+-j:11	 ixj: 88
+-j:12	 ixj: 96
+ ---
+ i: 9
+-j:2	 ixj: 18
+-j:3	 ixj: 27
+-j:4	 ixj: 36
+-j:5	 ixj: 45
+-j:6	 ixj: 54
+-j:7	 ixj: 63
+-j:8	 ixj: 72
+-j:9	 ixj: 81
+-j:10	 ixj: 90
+-j:11	 ixj: 99
+ ---
+ i: 10
+-j:2	 ixj: 20
+-j:3	 ixj: 30
+-j:4	 ixj: 40
+-j:5	 ixj: 50
+-j:6	 ixj: 60
+-j:7	 ixj: 70
+-j:8	 ixj: 80
+-j:9	 ixj: 90
+-j:10	 ixj: 100
+ ---
+ i: 11
+ j:2	 ixj: 22
+@@ -210,13 +141,6 @@
+ j:9	 ixj: 99
+ ---
+ i: 12
+-j:2	 ixj: 24
+-j:3	 ixj: 36
+-j:4	 ixj: 48
+-j:5	 ixj: 60
+-j:6	 ixj: 72
+-j:7	 ixj: 84
+-j:8	 ixj: 96
+ ---
+ i: 13
+ j:2	 ixj: 26
+@@ -227,26 +151,10 @@
+ j:7	 ixj: 91
+ ---
+ i: 14
+-j:2	 ixj: 28
+-j:3	 ixj: 42
+-j:4	 ixj: 56
+-j:5	 ixj: 70
+-j:6	 ixj: 84
+-j:7	 ixj: 98
+ ---
+ i: 15
+-j:2	 ixj: 30
+-j:3	 ixj: 45
+-j:4	 ixj: 60
+-j:5	 ixj: 75
+-j:6	 ixj: 90
+ ---
+ i: 16
+-j:2	 ixj: 32
+-j:3	 ixj: 48
+-j:4	 ixj: 64
+-j:5	 ixj: 80
+-j:6	 ixj: 96
+ ---
+ i: 17
+ j:2	 ixj: 34
+@@ -255,10 +163,6 @@
+ j:5	 ixj: 85
+ ---
+ i: 18
+-j:2	 ixj: 36
+-j:3	 ixj: 54
+-j:4	 ixj: 72
+-j:5	 ixj: 90
+ ---
+ i: 19
+ j:2	 ixj: 38
+@@ -267,20 +171,10 @@
+ j:5	 ixj: 95
+ ---
+ i: 20
+-j:2	 ixj: 40
+-j:3	 ixj: 60
+-j:4	 ixj: 80
+-j:5	 ixj: 100
+ ---
+ i: 21
+-j:2	 ixj: 42
+-j:3	 ixj: 63
+-j:4	 ixj: 84
+ ---
+ i: 22
+-j:2	 ixj: 44
+-j:3	 ixj: 66
+-j:4	 ixj: 88
+ ---
+ i: 23
+ j:2	 ixj: 46
+@@ -288,100 +182,69 @@
+ j:4	 ixj: 92
+ ---
+ i: 24
+-j:2	 ixj: 48
+-j:3	 ixj: 72
+-j:4	 ixj: 96
+ ---
+ i: 25
+-j:2	 ixj: 50
+-j:3	 ixj: 75
+-j:4	 ixj: 100
+ ---
+ i: 26
+-j:2	 ixj: 52
+-j:3	 ixj: 78
+ ---
+ i: 27
+-j:2	 ixj: 54
+-j:3	 ixj: 81
+ ---
+ i: 28
+-j:2	 ixj: 56
+-j:3	 ixj: 84
+ ---
+ i: 29
+ j:2	 ixj: 58
+ j:3	 ixj: 87
+ ---
+ i: 30
+-j:2	 ixj: 60
+-j:3	 ixj: 90
+ ---
+ i: 31
+ j:2	 ixj: 62
+ j:3	 ixj: 93
+ ---
+ i: 32
+-j:2	 ixj: 64
+-j:3	 ixj: 96
+ ---
+ i: 33
+-j:2	 ixj: 66
+-j:3	 ixj: 99
+ ---
+ i: 34
+-j:2	 ixj: 68
+ ---
+ i: 35
+-j:2	 ixj: 70
+ ---
+ i: 36
+-j:2	 ixj: 72
+ ---
+ i: 37
+ j:2	 ixj: 74
+ ---
+ i: 38
+-j:2	 ixj: 76
+ ---
+ i: 39
+-j:2	 ixj: 78
+ ---
+ i: 40
+-j:2	 ixj: 80
+ ---
+ i: 41
+ j:2	 ixj: 82
+ ---
+ i: 42
+-j:2	 ixj: 84
+ ---
+ i: 43
+ j:2	 ixj: 86
+ ---
+ i: 44
+-j:2	 ixj: 88
+ ---
+ i: 45
+-j:2	 ixj: 90
+ ---
+ i: 46
+-j:2	 ixj: 92
+ ---
+ i: 47
+ j:2	 ixj: 94
+ ---
+ i: 48
+-j:2	 ixj: 96
+ ---
+ i: 49
+-j:2	 ixj: 98
+ ---
+ i: 50
+-j:2	 ixj: 100
+ ---
+ 
+- counter: 283
++ counter: 146
+ 
+ ----------- Sieve of Eratosthenes -----------
+ 
+
+Diff finished.  Fri Mar  2 12:58:52 2018

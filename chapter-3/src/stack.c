@@ -15,23 +15,21 @@ stack_t initstack(void) {
 }
 
 void push(int val, stack_t stack) {
-    node_t bar = malloc(sizeof *bar);
+    node_t new = malloc(sizeof *new);
 
-    bar->data = val;
-    bar->next = stack->head->next;
-    stack->head->next = bar;
+    new->data = val;
+    new->next = stack->head->next; /* point to the old one */
+    stack->head->next = new;	   /* set the new first node */
 }
 
 int pop(stack_t ss) {
-    node_t origin = ss->head->next; /* get the node next to the head */
-    int bar;
+    node_t old = ss->head->next; /* get the node next to the head */
     
-    ss->head->next = origin->next; /* move the head one step */
-    bar = origin->data;	     /* get the data from the original node */
-
-    free(origin);		/* free the node */
+    ss->head->next = old->next; /* move the head one step */
+    int data = old->data;	/* get the data from the old */
+    free(old);			/* free the old node */
     
-    return bar;
+    return data;
 }
 
 bool_t isemptystack(stack_t ss) {
