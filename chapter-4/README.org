@@ -1,0 +1,24 @@
+* About
+
+  /Linked Lists/ is a one dimentional /Data Structure/, /Trees/ are implemented using /Linked Lists/ creating multiple dimentions. One common example is *family trees* to describe one's ancestors or any regular tournament.
+
+* Things learned in this chapter
+
+  + Terminology :: definition of terms
+    + /tree/ -- nonempty collection of /vertices/ and /edges/ that satisfies a requirement.
+    + /forest/ -- set of trees
+    + /vertex/ -- a named node (also called object), may contain additional data
+    + /edge/ -- connection between two /vertices/ (with no emphasize on directions)
+    + /path/ -- a list of distinct /vertices/ which are successively connected via /edges/
+    + /root/ -- one node with a unique property such as /there is exactly one path from each node to the root/ i.e. if there's more than one path between the /root/, or no path at all, then this is a /graph/ not a /tree/
+    + /node x above node y/ -- means that the in order to reach /node y/ coming from the /root/, we have to pass through /node x/ i.e. /node y is below node x/
+    + nodes above called /parents/ -- root has no parent
+    + nodes below called /children/ -- root has all the tree as children
+    + family analogy is acceptable -- sibling or grandparent
+    + /leaves/ -- /external nodes/ or /terminal nodes/ are nodes with no children (*Note:* terminal nodes are often called /external nodes/ and nonterminal nodes called /internal nodes/)
+    + /level/ -- how far a node is from the root (not including itself)
+  + edge directions depends on the application :: whether from the /root/ or towards the /root/
+  + each node has exactly one parent :: except the /root/
+  + any node is the root of its children :: there's only one global /root/
+
+* Glossary

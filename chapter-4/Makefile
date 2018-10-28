@@ -1,10 +1,10 @@
 # DEFAULT COMPILER SETUP
 CC = gcc
-CFLAGS = -ggdb -O2 -Wall -Wextra -Werror # -pedantic -Wpadded
-LDFLAGS = -I.
+CFLAGS = -ggdb -Wall -Wextra -Werror # -pedantic -Wpadded -O2
+LDFLAGS = -I. -lm
 
 # DEFAULT PROGRAM NAME
-EXEC = ch2.out
+EXEC = ch4.out
 # DEFAULT PROGRAM ARGUMENTS
 ARGS = 30 6
 
@@ -27,7 +27,7 @@ all: main
 
 main: build-dir $(OBJ)
 	@echo -e "\nbuilding executable.."
-	$(CC) $(OBJ) -o $(EXEC)
+	$(CC) $(OBJ) -o $(EXEC) $(LDFLAGS)
 	@echo -e ""
 
 build-dir:
@@ -44,8 +44,8 @@ endef
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(DEPS)
 	$(CC) $(CFLAGS) -c -o $@ $< $(LDFLAGS) 
 
-run: build
-	@echo -e "Passed Arguments:\t \033[0;31m" $(ARGS)
+run: all
+	@echo -e "Passed Arguments:\t \033[0;32m" $(ARGS)
 	@echo -e "\033[0m"
 	./$(EXEC) $(ARGS)
 	@echo " "
